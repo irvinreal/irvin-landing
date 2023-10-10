@@ -1,0 +1,177 @@
+---
+import Email from './icons/Email.astro'
+import Github from './icons/Github.astro'
+import LinkedIn from './icons/LinkedIn.astro'
+import WhatsApp from './icons/WhatsApp.astro'
+import HtmlSkill from './skills/HtmlSkill.astro'
+
+const CONTACT_MEAS = [
+  {
+    title: 'E-mail',
+    icon: Email
+  },
+  {
+    title: 'WhatsApp',
+    icon: WhatsApp
+  },
+  {
+    title: 'LinkedIn',
+    icon: LinkedIn
+  }
+]
+
+// Todo: reducir peso de imagenes https://compressjpeg.com/es/
+const SKILLS = [
+  {
+    imgId: 'html',
+    title: 'HTML 5',
+    spanId: 'htmlSpan',
+    img: '../../../public/imgs/skillsImgs/html.png',
+    alt: 'HTML Logo'
+  },
+  {
+    imgId: 'css',
+    title: 'CSS 3',
+    spanId: 'cssSpan',
+    img: '../../../public/imgs/skillsImgs/css.png',
+    alt: 'CSS Logo'
+  },
+  {
+    imgId: 'javascript',
+    title: 'JavaScript',
+    spanId: 'javascriptSpan',
+    img: '../../../public/imgs/skillsImgs/javascript.png',
+    alt: 'JavaScript Logo'
+  },
+  {
+    imgId: 'tailwindcss',
+    title: 'Tailwind CSS',
+    spanId: 'tailwindcssSpan',
+    img: '../../../public/imgs/skillsImgs/tailwindcss.png',
+    alt: 'Tailwind CSS Logo'
+  },
+  {
+    imgId: 'bootstrap',
+    title: 'Bootstrap',
+    spanId: 'bootstrapSpan',
+    img: '../../../public/imgs/skillsImgs/bootstrap.png',
+    alt: 'Bootstrap Logo'
+  },
+  {
+    imgId: 'reactjs',
+    title: 'React js',
+    spanId: 'reactjsSpan',
+    img: '../../../public/imgs/skillsImgs/reactjs.png',
+    alt: 'Reactjs Logo'
+  },
+  {
+    imgId: 'nextjs',
+    title: 'Next js',
+    spanId: 'nextjsSpan',
+    img: '../../../public/imgs/skillsImgs/nextjs.png',
+    alt: 'Nextjs Logo'
+  },
+  {
+    imgId: 'git',
+    title: 'Git',
+    spanId: 'gitSpan',
+    img: '../../../public/imgs/skillsImgs/git.png',
+    alt: 'Git Logo'
+  },
+  {
+    imgId: 'github',
+    title: 'Github',
+    spanId: 'githubSpan',
+    img: '../../../public/imgs/skillsImgs/github.png',
+    alt: 'Github Logo'
+  },
+  {
+    imgId: 'mongodb',
+    title: 'MongoDB',
+    spanId: 'mongodbSpan',
+    img: '../../../public/imgs/skillsImgs/mongodb.webp',
+    alt: 'MongoDB Logo'
+  }
+]
+---
+
+<section
+  data-ComeUpBtn-color='white'
+  data-ComeUpBtn-background-color='black'
+  data-ComeUpBtn-display='block'
+  id='footer-container'
+  class='landing-section min-h-[100dvh] max-h-[100dvh] flex flex-col justify-evenly items-center relative'
+>
+  <!-- Skills -->
+  <section
+    id='container-skills'
+    class='h-full w-full text-center flex flex-col justify-center items-center'
+  >
+    <h3 class='font-medium text-teal-950 inline-block'>
+      <span class='skill-An inline-block bg-white me-[1px]'>S</span><span
+        class='skill-An inline-block me-[1px]'>k</span
+      ><span class='skill-An inline-block me-[1px]'>i</span><span
+        class='skill-An inline-block me-[1px]'>l</span
+      >
+      <span class='skill-An inline-block me-[1px]'>l</span><span
+        class='skill-An inline-block'>s</span
+      >
+    </h3>
+    <div
+      class='relative md:px-10 my-5 w-full gap-y-2 flex justify-center items-center flex-wrap py-2'
+    >
+      {
+        SKILLS.map(({ title, img, alt, imgId = '', spanId }) => (
+          <article class='min-w-fit relative group art-skill-An'>
+            <div class='md:w-fit mx-3'>
+              {<HtmlSkill img={img} alt={alt} imgId={imgId} />}
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- Contacto -->
+  <section id='/contact' class='h-full w-full px-8 pt-10'>
+    <h3 class='h-full font-medium ps-2 text-teal-950 tracking-wide fa'>
+      Contact
+    </h3>
+    <div
+      class='my-3 flex flex-col gap-2 [&>h6]:flex [&>h6]:items-center [&>h6]:gap-2 [&>h6]:text-sm [&>h6]:text-teal-950 [&>h6]:font-thin'
+    >
+      {
+        CONTACT_MEAS.map((contact) => (
+          <h6 class='bg-neutral-800 text-white px-4 py-1 w-36 rounded-sm transition-colors ease-out duration-200 md:cursor-pointer md:hover:bg-neutral-700 fa'>
+            <span class='text-white'>{<contact.icon />}</span>
+            <span class='text-white text-xs'>{contact.title}</span>
+          </h6>
+        ))
+      }
+    </div>
+    <span
+      class='absolute bottom-0 left-0 w-full text-gray-400 text-sm font-normal py-2 flex justify-center items-center gap-1'
+    >
+      <span><Github /></span>
+       Irvin Real</span
+    >
+  </section>
+</section>
+<!-- 
+<style>
+
+@keyframes animation-bg-skills {
+  from {
+
+  }
+
+  to {
+
+  }
+}
+
+  #bgSkillsImgs {
+    animation-name: animation-bg-skills;
+    animation
+  }
+</style> -->

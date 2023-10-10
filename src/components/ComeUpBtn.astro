@@ -1,0 +1,54 @@
+<span
+  id='ComeUpBtn'
+  class='fixed bottom-16 md:bottom-8 right-4 md:right-10 opacity-95 md:opacity-100 bg-black text-white transition-all duration-150 ease-in cursor-pointer rounded-full md:rounded-sm shadow-md shadow-black hover:shadow-lg hover:shadow-black'
+>
+  <a
+    href='#header-section'
+    id='button-ComeUp'
+    class='font-light px-3 py-3 md:px-4 md:py-1 flex items-center gap-2'
+    ><span class="hidden md:inline-block">Come up</span>
+    <svg
+      xmlns='http://www.w3.org/2000/svg'
+      width='18'
+      height='18'
+      fill='currentColor'
+      class='bi bi-caret-up opacity-50 relative md:left-1'
+      viewBox='0 0 16 16'
+    >
+      <path
+        d='M3.204 11h9.592L8 5.519 3.204 11zm-.753-.659 4.796-5.48a1 1 0 0 1 1.506 0l4.796 5.48c.566.647.106 1.659-.753 1.659H3.204a1 1 0 0 1-.753-1.659z'
+      ></path>
+    </svg></a
+  >
+</span>
+
+<script>
+  // intersection observer
+  const header = document.querySelector('#ComeUpBtn') as HTMLElement
+
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.9
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      const { isIntersecting } = entry
+
+      if (isIntersecting) {
+        const color = entry.target.getAttribute('data-ComeUpBtn-color')
+        const backgroundColor = entry.target.getAttribute(
+          'data-ComeUpBtn-background-color'
+        )
+        const display = entry.target.getAttribute('data-ComeUpBtn-display')
+        header.style.color = color
+        header.style.backgroundColor = backgroundColor
+        header.style.display = display
+      }
+    })
+  }, observerOptions)
+
+  const sections = document.querySelectorAll('.landing-section')
+  sections.forEach((section) => observer.observe(section))
+</script>
