@@ -1,18 +1,18 @@
 <span
   id='ComeUpBtn'
-  class='fixed bottom-16 md:bottom-8 right-4 md:right-10 opacity-95 md:opacity-100 bg-black text-white transition-all duration-150 ease-in cursor-pointer rounded-full md:rounded-sm shadow-md shadow-black hover:shadow-lg hover:shadow-black'
+  class='fixed bottom-24 md:bottom-20 right-4 md:right-10 opacity-95 md:opacity-100 bg-gray-900 text-white transition-all duration-150 ease-in cursor-pointer rounded-full md:rounded-sm shadow-md shadow-black hover:shadow-lg hover:shadow-black'
 >
   <a
     href='#header-section'
     id='button-ComeUp'
     class='font-light px-3 py-3 md:px-4 md:py-1 flex items-center gap-2'
-    ><span class="hidden md:inline-block">Come up</span>
+    >
     <svg
       xmlns='http://www.w3.org/2000/svg'
       width='18'
       height='18'
       fill='currentColor'
-      class='bi bi-caret-up opacity-50 relative md:left-1'
+      class='bi bi-caret-up'
       viewBox='0 0 16 16'
     >
       <path
@@ -24,7 +24,7 @@
 
 <script>
   // intersection observer
-  const header = document.querySelector('#ComeUpBtn') as HTMLElement
+  const ComeUpBtn = document.querySelector('#ComeUpBtn') as HTMLElement
 
   const observerOptions = {
     root: null,
@@ -42,9 +42,9 @@
           'data-ComeUpBtn-background-color'
         )
         const display = entry.target.getAttribute('data-ComeUpBtn-display')
-        header.style.color = color
-        header.style.backgroundColor = backgroundColor
-        header.style.display = display
+        ComeUpBtn.style.color = color
+        ComeUpBtn.style.backgroundColor = backgroundColor
+        ComeUpBtn.style.display = display
       }
     })
   }, observerOptions)

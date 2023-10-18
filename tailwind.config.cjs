@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: 'class',
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
     extend: {
@@ -86,7 +87,6 @@ module.exports = {
         parpadeo: {
           '0%, 100%': { 'background-color': 'red' },
           '50%': { 'background-color': 'yellow' }
-
         }
       },
       animation: {

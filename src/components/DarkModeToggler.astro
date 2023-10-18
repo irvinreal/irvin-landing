@@ -1,0 +1,120 @@
+<div class='absolute top-5 md:top-4 left-10 md:left-[unset] md:right-12 z-50 darkModeToggler'>
+  <input type='checkbox' id='check' class='toggle' />
+  <label for='check' class='flex items-center'>Dark</label>
+</div>
+
+<style>
+  input[type='checkbox'].toggle {
+    opacity: 0;
+    position: absolute;
+    left: 9000;
+    top: 9000;
+  }
+
+  input[type='checkbox'].toggle + label {
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: rgb(146, 146, 146);
+    cursor: pointer;
+    font-weight: 600;
+  }
+
+  input[type='checkbox'].toggle + label::before {
+    content: '';
+    width: 2.2em;
+    height: 1em;
+    background: linear-gradient(
+      90deg,
+      rgb(199, 199, 199) 0%,
+      rgb(120, 203, 241) 100%
+    );
+    border-radius: 1em;
+    margin-right: 0.25em;
+    transition: background-color 200ms ease-in-out;
+  }
+
+  input[type='checkbox'].toggle:checked + label::before {
+    background: linear-gradient(
+      90deg,
+      rgb(66, 66, 66) 0%,
+      rgb(44, 82, 100) 100%
+    );
+  }
+
+  input[type='checkbox'].toggle + label::after {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 0px;
+    content: 'on';
+    font-size: 0.54em;
+    color: gray;
+    width: 2.4em;
+    height: 2.4em;
+    background-color: white;
+    border-radius: 1em;
+    margin-right: 1em;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    transition: background-color 200ms ease-in-out;
+  }
+  input[type='checkbox'].toggle:focus + label::before {
+    outline: 2px solid gray;
+  }
+
+  input[type='checkbox'].toggle:checked + label::after {
+    content: 'off';
+    transform: translateX(80%);
+    background-color: rgb(174, 208, 247);
+  }
+
+  input[type='checkbox'].toggle:checked + label {
+    color: rgb(85, 132, 185);
+    content: 'red';
+  }
+</style>
+
+<script>
+  const darkModeToggler = document.querySelector('#check') as HTMLInputElement
+  const doc = document.documentElement
+
+  if (
+    localStorage.theme === 'dark' ||
+    (!('theme' in localStorage) &&
+      window.matchMedia('(prefers-color-scheme: dark)').matches)
+  ) {
+    document.documentElement.classList.add('dark')
+  } else {
+    document.documentElement.classList.remove('dark')
+  }
+
+  // ------------------------------------------------------
+  // Whenever the user explicitly chooses light mode
+  localStorage.theme = 'light'
+
+  // Whenever the user explicitly chooses dark mode
+  localStorage.theme = 'dark'
+
+  // Whenever the user explicitly chooses to respect the OS preference
+  localStorage.removeItem('theme')
+  // ------------------------------------------------------
+
+  if (document.firstElementChild.className === 'dark') {
+    darkModeToggler.checked = true
+  } else {
+    darkModeToggler.checked = false
+  }
+
+  const isChecked = darkModeToggler.checked
+
+  darkModeToggler.addEventListener('click', function (e) {
+    doc.classList.toggle('dark')
+
+    if (isChecked) {
+      window.localStorage.setItem('theme', 'dark')
+    } else if (!isChecked) {
+      window.localStorage.setItem('theme', 'ligth')
+    }
+  })
+</script>

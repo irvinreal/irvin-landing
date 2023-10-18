@@ -6,10 +6,12 @@ import Aboutme from '../components/Aboutme.astro'
 import LandingHeader from '../components/LandingHeader.astro'
 import ComeUpBtn from '../components/ComeUpBtn.astro'
 import Projects from '../components/Projects.astro'
+import ComeDownBtn from '../components/ComeDownBtn.astro'
 ---
 
 <Layout title='Irvin Real | Front End Web Developer'>
   <main
+    id='scroller'
     class='snap-y snap-mandatory relative w-full max-h-screen overflow-auto scroll-smooth'
   >
     <LandingHeader />
@@ -21,15 +23,16 @@ import Projects from '../components/Projects.astro'
     <div class='snap-center'>
       <Projects />
     </div>
-    <!-- About me -->
-    <div class='snap-center'>
-      <Aboutme />
-    </div>
     <!-- Footer -->
     <footer class='snap-center'>
       <FooterSection />
     </footer>
+    <!-- About me -->
+    <div class='snap-center'>
+      <Aboutme />
+    </div>
     <ComeUpBtn />
+    <ComeDownBtn />
   </main>
 </Layout>
 
@@ -40,6 +43,7 @@ import Projects from '../components/Projects.astro'
   const bgWhiteNavbar = document.getElementById('bg-white-navbar')
   const ulNavbar = document.getElementById('ulNavbar')
   const btnCloseNav = document.getElementById('btnCloseNav')
+  const darkModeToggler = document.querySelector('.darkModeToggler')
 
   const handleClickBtnMenu = (e) => {
     navbar.classList.toggle('opacity-0')
@@ -48,6 +52,7 @@ import Projects from '../components/Projects.astro'
     ulNavbar.classList.toggle('flex')
     btnMenu.classList.add('opacity-0')
     btnMenu.classList.add('hidden')
+    darkModeToggler.classList.add('hidden')
   }
 
   const handleClickBtnCloseNav = (e) => {
@@ -57,8 +62,25 @@ import Projects from '../components/Projects.astro'
     ulNavbar.classList.toggle('flex')
     btnMenu.classList.remove('opacity-0')
     btnMenu.classList.remove('hidden')
+    darkModeToggler.classList.remove('hidden')
   }
 
   btnMenu.addEventListener('click', handleClickBtnMenu)
   btnCloseNav.addEventListener('click', handleClickBtnCloseNav)
 </script>
+
+<style>
+  main::-webkit-scrollbar {
+    width: 0px;
+    /* width: 10px; */
+  }
+
+  /* main::-webkit-scrollbar-track {
+    background: rgb(3, 7, 18, 0.4);
+  }
+
+  main::-webkit-scrollbar-thumb {
+    background-color: rgb(99, 99, 126);
+    border-radius: 20px;
+  } */
+</style>
