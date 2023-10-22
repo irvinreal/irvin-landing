@@ -14,9 +14,12 @@ import IconNav from './icons/IconNav.astro'
     <div
       class='absolute bottom-10 left-0 right-0 flex justify-center w-full h-5'
     >
-      <span id='btnCloseNav' class='drop-shadow-[0_4px_9px_rgba(255,255,255)]'>
+      <button
+        id='btnCloseNav'
+        class='drop-shadow-[0_4px_9px_rgba(255,255,255)]'
+      >
         <CloseNav />
-      </span>
+      </button>
     </div>
   </div>
   <div
@@ -25,12 +28,12 @@ import IconNav from './icons/IconNav.astro'
     <div
       class='absolute top-3 right-3 z-50 md:sticky flex justify-center items-center w-fit md:hidden'
     >
-      <span
+      <button
         id='btnMenu'
         class='text-gray-700 border border-gray-700 dark:text-gray-200 dark:border-gray-200 shadow-sm shadow-gray-800/30 dark:shadow-md dark:shadow-gray-950 rounded-md px-1 py-1 transition-all ease-out duration-200'
       >
         <IconNav />
-      </span>
+      </button>
     </div>
     <nav
       id='navbar'
@@ -44,6 +47,8 @@ import IconNav from './icons/IconNav.astro'
           <img
             class='w-8 h-8 bg-white p-1 rounded-full ms-8 transition-all ease-in-out duration-200 md:group-hover:invert'
             src='../../public/irvin.svg'
+            alt="logotipo de irvin"
+            width="30" height="auto"
           />
         </a>
         <li
