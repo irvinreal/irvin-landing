@@ -3,26 +3,28 @@
   data-ComeUpBtn-background-color='rgb(17 24 39)'
   data-ComeUpBtn-display='block'
   id="projects"
-  class='landing-section w-full min-h-[100dvh] flex flex-col justify-center items-center'
+  class='landing-section w-full h-screen flex flex-col justify-center items-center'
 >
-  <h2 class='text-blue-200 text-2xl my-3'>Landings</h2>
-  <section class="flex flex-col md:flex-row gap-10">
+  <h2 class='dark:text-blue-200 text-xl font-light my-2 md:mt-20'>Landings</h2>
+  <section class="flex flex-col md:flex-row gap-10 py-20 md:py-8">
 
     <!-- Porsche Landing -->
-    <article class="relative rounded-md overflow-hidden transition-all duration-500 ease-in-out group shadow-[0px_4px_15px] shadow-black/40 hover:shadow-blue-200/30">
-      <iframe id="porsche-landing" src="https://porsche-landing-khaki.vercel.app/" frameborder=""width="300"
-      height="250"></iframe>
-      <div class="absolute top-0 left-0 z-50 w-full h-full rounded-md bg-black/80 backdrop-blur-sm transition-all duration-500 ease-in-out group-hover:-z-10 flex justify-center items-center">
-        <span class="text-white/70 text-2xl font-semibold tracking-wider">Porsche Landing</span>
+    <article class="landing landing-1 relative rounded-md overflow-hidden transition-all duration-500 ease-in-out group shadow-[0px_4px_15px] shadow-black/40 dark:hover:shadow-blue-200/30 hover:shadow-dark hover:shadow-[0px_4px_15px]">
+      <iframe id="porsche-landing" src="https://porsche-landing-khaki.vercel.app/" frameborder=""width="320"
+      height="550" class="h-60 md:h-[550px]"></iframe>
+      <div class="frontLayout absolute top-0 left-0 z-50 w-full h-full rounded-md bg-black/90 backdrop-blur-sm transition-all duration-500 ease-in-out md:group-hover:-z-10 flex flex-col justify-center items-center">
+        <span class="text-white/70 text-6xl font-semibold tracking-wider">Porsche</span>
+        <span class="text-white/70 text-lg font-light tracking-widest">Landing</span>
       </div>
     </article>
 
     <!-- Tesla Landing -->
-    <article class="relative rounded-md overflow-hidden transition-all duration-500 ease-in-out group shadow-[0px_4px_15px] shadow-black/40 hover:shadow-blue-200/30">
-      <iframe id="porsche-landing" src="https://porsche-landing-khaki.vercel.app/" frameborder=""width="300"
-      height="250"></iframe>
-      <div class="absolute top-0 left-0 z-50 w-full h-full rounded-md bg-black/80 backdrop-blur-sm transition-all duration-500 ease-in-out group-hover:-z-10 flex justify-center items-center">
-        <span class="text-white/70 text-2xl font-semibold tracking-wider">Tesla Landing</span>
+    <article class="landing landing-2 relative rounded-md overflow-hidden transition-all duration-500 ease-in-out group shadow-[0px_4px_15px] shadow-black/40 dark:hover:shadow-blue-200/30 hover:shadow-dark hover:shadow-[0px_4px_15px]">
+      <iframe id="tesla-landing" src="https://tesla-landing-theta.vercel.app/" frameborder=""width="320"
+      height="590" class="h-60 md:h-[590px]"></iframe>
+      <div class="frontLayout absolute top-0 left-0 z-50 w-full h-full rounded-md bg-black/90 backdrop-blur-sm transition-all duration-500 ease-in-out md:group-hover:-z-10 flex flex-col justify-center items-center">
+        <span class="text-white/70 -z-10 text-6xl font-semibold tracking-wider">Tesla</span>
+        <span class="text-white/70 text-lg font-light tracking-widest">Landing</span>
       </div>
     </article>
 
@@ -36,4 +38,64 @@
   }
 </style>
 
-<!-- Área de finanzas UTEL: 5592522985 -->
+<!-- Script for frontLayout -->
+<script>
+  const landing = document.querySelectorAll('.landing')
+  const frontLayout = document.querySelectorAll('.frontLayout')
+
+
+    landing.forEach(element => {
+      element.addEventListener('click', function (e) {
+        // click en cada article "landing pages"
+        frontLayout.forEach(layout => {
+          layout.classList.remove('hidden')
+        })
+        
+        landing.forEach(element => {
+          if (element.firstElementChild.classList.contains('h-[590px]')) {
+            element.firstElementChild.classList.remove('h-[590px]')
+            element.firstElementChild.classList.add('h-60')
+          }
+        })
+
+        element.lastElementChild.classList.add('hidden')
+        element.firstElementChild.classList.remove('h-60')
+        element.firstElementChild.classList.add('h-[590px]')
+        
+    })
+
+    // todo: si no esta siendo visible dentro del viewport regresar a su tamaño normal ( en tamaño móvil )
+    // usar intersection observer
+
+  })
+
+  const observerOptions = {
+    root: null, // Defaults to the viewport
+    rootMargin: '-100px -100px 0px 0px', // En cuanto se ve el elemento
+    threshold: 0 // Porcentaje de visibilidad del elemento
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+
+      const { isIntersecting } = entry
+      const article1 = entry.target.classList.contains('landing-1')
+      const article2 = entry.target.classList.contains('landing-2')
+
+
+      if (entry.isIntersecting === false && entry.isIntersecting === false) {
+        landing.forEach(element => {
+            element.lastElementChild.classList.remove('hidden')
+            element.firstElementChild.classList.remove('h-[590px]')
+            element.firstElementChild.classList.add('h-60')
+        })
+
+      }
+
+    })
+  }, observerOptions)
+
+  landing.forEach((section) => observer.observe(section))
+
+
+</script>

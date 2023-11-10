@@ -1,6 +1,6 @@
 <span
   id='ComeUpBtn'
-  class='fixed bottom-24 md:bottom-20 right-4 md:right-10 opacity-95 md:opacity-100 bg-gray-900 text-white transition-all duration-150 ease-in cursor-pointer rounded-full md:rounded-sm shadow-md shadow-black hover:shadow-lg hover:shadow-black'
+  class='fixed z-50 bottom-24 md:bottom-20 right-4 md:right-10 opacity-95 md:opacity-100 bg-gray-900 text-white transition-all duration-150 ease-in cursor-pointer rounded-full md:rounded-sm shadow-md shadow-black hover:shadow-lg hover:shadow-black'
 >
   <a
     href='#header-section'
@@ -20,11 +20,13 @@
       ></path>
     </svg></a
   >
+  <span id="spanBtn-top" class="hidden absolute -bottom-7 left-2 text-white/80">Top</span>
 </span>
 
 <script>
   // intersection observer
   const ComeUpBtn = document.querySelector('#ComeUpBtn') as HTMLElement
+  const spanBtn_top = document.getElementById('spanBtn-top')
 
   const observerOptions = {
     root: null,
@@ -45,6 +47,12 @@
         ComeUpBtn.style.color = color
         ComeUpBtn.style.backgroundColor = backgroundColor
         ComeUpBtn.style.display = display
+
+        if (backgroundColor === 'rgb(229 231 235)') {
+          spanBtn_top.classList.remove('hidden')
+        } else if (backgroundColor !== 'rgb(229 231 235)') {
+          spanBtn_top.classList.add('hidden')
+        }
       }
     })
   }, observerOptions)
