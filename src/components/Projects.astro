@@ -3,7 +3,37 @@
   data-ComeUpBtn-background-color='rgb(17 24 39)'
   data-ComeUpBtn-display='block'
   id="projects"
-  class='landing-section w-full min-h-[100dvh] flex justify-center items-center'
+  class='landing-section w-full min-h-[100dvh] flex flex-col justify-center items-center'
 >
-  <h2 class='text-green-200 text-5xl'>Here goes my projects..</h2>
+  <h2 class='text-blue-200 text-2xl my-3'>Landings</h2>
+  <section class="flex flex-col md:flex-row gap-10">
+
+    <!-- Porsche Landing -->
+    <article class="relative rounded-md overflow-hidden transition-all duration-500 ease-in-out group shadow-[0px_4px_15px] shadow-black/40 hover:shadow-blue-200/30">
+      <iframe id="porsche-landing" src="https://porsche-landing-khaki.vercel.app/" frameborder=""width="300"
+      height="250"></iframe>
+      <div class="absolute top-0 left-0 z-50 w-full h-full rounded-md bg-black/80 backdrop-blur-sm transition-all duration-500 ease-in-out group-hover:-z-10 flex justify-center items-center">
+        <span class="text-white/70 text-2xl font-semibold tracking-wider">Porsche Landing</span>
+      </div>
+    </article>
+
+    <!-- Tesla Landing -->
+    <article class="relative rounded-md overflow-hidden transition-all duration-500 ease-in-out group shadow-[0px_4px_15px] shadow-black/40 hover:shadow-blue-200/30">
+      <iframe id="porsche-landing" src="https://porsche-landing-khaki.vercel.app/" frameborder=""width="300"
+      height="250"></iframe>
+      <div class="absolute top-0 left-0 z-50 w-full h-full rounded-md bg-black/80 backdrop-blur-sm transition-all duration-500 ease-in-out group-hover:-z-10 flex justify-center items-center">
+        <span class="text-white/70 text-2xl font-semibold tracking-wider">Tesla Landing</span>
+      </div>
+    </article>
+
+  </section>
 </section>
+
+<style>
+  #porsche-landing {
+    background: white;
+    overflow-x: hidden !important;
+  }
+</style>
+
+<!-- Área de finanzas UTEL: 5592522985 -->

@@ -50,7 +50,7 @@
     align-items: center;
     position: absolute;
     left: 0px;
-    content: 'on';
+    content: 'off';
     font-size: 0.54em;
     color: gray;
     width: 2.4em;
@@ -66,7 +66,7 @@
   }
 
   input[type='checkbox'].toggle:checked + label::after {
-    content: 'off';
+    content: 'on';
     transform: translateX(80%);
     background-color: rgb(174, 208, 247);
   }
@@ -87,19 +87,23 @@
       window.matchMedia('(prefers-color-scheme: dark)').matches)
   ) {
     document.documentElement.classList.add('dark')
+    darkModeToggler.checked = true
+
   } else {
     document.documentElement.classList.remove('dark')
+    darkModeToggler.checked = false
+
   }
 
   // ------------------------------------------------------
   // Whenever the user explicitly chooses light mode
-  localStorage.theme = 'light'
+  // localStorage.theme = 'light'
 
-  // Whenever the user explicitly chooses dark mode
-  localStorage.theme = 'dark'
+  // // Whenever the user explicitly chooses dark mode
+  // localStorage.theme = 'dark'
 
-  // Whenever the user explicitly chooses to respect the OS preference
-  localStorage.removeItem('theme')
+  // // Whenever the user explicitly chooses to respect the OS preference
+  // localStorage.removeItem('theme')
   // ------------------------------------------------------
 
   if (document.firstElementChild.className === 'dark') {
@@ -108,14 +112,16 @@
     darkModeToggler.checked = false
   }
 
-  const isChecked = darkModeToggler.checked
+  // const isChecked = darkModeToggler.checked
 
   darkModeToggler.addEventListener('click', function (e) {
+    const isChecked = e.target.checked 
     doc.classList.toggle('dark')
-
     if (isChecked) {
+      console.log('Checked!')
       window.localStorage.setItem('theme', 'dark')
     } else if (!isChecked) {
+      console.log('Not Check!')
       window.localStorage.setItem('theme', 'ligth')
     }
   })
