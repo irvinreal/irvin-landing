@@ -5,27 +5,34 @@
   id="projects"
   class='landing-section w-full h-screen flex flex-col justify-center items-center'
 >
-  <h2 class='dark:text-blue-200 text-xl font-light my-2 md:mt-20'>Landings</h2>
-  <section class="flex flex-col md:flex-row gap-10 py-20 md:py-8">
+  <h2 class='dark:text-blue-200 text-xl font-light my-2 md:mt-12'>Landing Pages (Clones) </h2>
+  <section class="flex flex-col md:flex-row gap-10 py-10 md:py-8">
 
     <!-- Porsche Landing -->
-    <article class="landing landing-1 relative rounded-md overflow-hidden transition-all duration-500 ease-in-out group shadow-[0px_4px_15px] shadow-black/40 dark:hover:shadow-blue-200/30 hover:shadow-dark hover:shadow-[0px_4px_15px]">
+    <article class="md:landing landing-1 relative rounded-md overflow-hidden transition-all duration-500 ease-in-out group shadow-[0px_4px_15px] shadow-black/40 dark:hover:shadow-blue-200/30 hover:shadow-dark hover:shadow-[0px_4px_15px]">
       <iframe id="porsche-landing" src="https://porsche-landing-khaki.vercel.app/" frameborder=""width="320"
-      height="550" class="h-60 md:h-[550px]"></iframe>
-      <div class="frontLayout absolute top-0 left-0 z-50 w-full h-full rounded-md bg-black/90 backdrop-blur-sm transition-all duration-500 ease-in-out md:group-hover:-z-10 flex flex-col justify-center items-center">
+      height="550" class="h-60 md:h-[550px]" >
+      </iframe>
+      <div class="frontLayout absolute top-0 left-0 z-40 w-full h-full rounded-md bg-black/90 backdrop-blur-sm transition-all duration-500 ease-in-out md:group-hover:-z-10 flex flex-col justify-center items-center">
         <span class="text-white/70 text-6xl font-semibold tracking-wider">Porsche</span>
         <span class="text-white/70 text-lg font-light tracking-widest">Landing</span>
       </div>
+
+      <a class="absolute z-50 md:-z-10 top-0 left-0 w-full h-full" href="https://porsche-landing-khaki.vercel.app/" target="_blank"></a>
     </article>
 
+
+
     <!-- Tesla Landing -->
-    <article class="landing landing-2 relative rounded-md overflow-hidden transition-all duration-500 ease-in-out group shadow-[0px_4px_15px] shadow-black/40 dark:hover:shadow-blue-200/30 hover:shadow-dark hover:shadow-[0px_4px_15px]">
+    <article class="md:landing landing-2 relative rounded-md overflow-hidden transition-all duration-500 ease-in-out group shadow-[0px_4px_15px] shadow-black/40 dark:hover:shadow-blue-200/30 hover:shadow-dark hover:shadow-[0px_4px_15px]">
       <iframe id="tesla-landing" src="https://tesla-landing-theta.vercel.app/" frameborder=""width="320"
-      height="590" class="h-60 md:h-[590px]"></iframe>
-      <div class="frontLayout absolute top-0 left-0 z-50 w-full h-full rounded-md bg-black/90 backdrop-blur-sm transition-all duration-500 ease-in-out md:group-hover:-z-10 flex flex-col justify-center items-center">
+      height="590" class="h-60 md:h-[590px]">
+      </iframe>
+      <div class="frontLayout absolute top-0 left-0 z-40 w-full h-full rounded-md bg-black/90 backdrop-blur-sm transition-all duration-500 ease-in-out md:group-hover:-z-10 flex flex-col justify-center items-center">
         <span class="text-white/70 -z-10 text-6xl font-semibold tracking-wider">Tesla</span>
         <span class="text-white/70 text-lg font-light tracking-widest">Landing</span>
       </div>
+      <a class="absolute z-50 md:-z-10 top-0 left-0 w-full h-full" href="https://tesla-landing-theta.vercel.app/" target="_blank"></a>
     </article>
 
   </section>
@@ -69,33 +76,33 @@
 
   })
 
-  const observerOptions = {
-    root: null, // Defaults to the viewport
-    rootMargin: '-100px -100px 0px 0px', // En cuanto se ve el elemento
-    threshold: 0 // Porcentaje de visibilidad del elemento
-  }
+  // const observerOptions = {
+  //   root: null, // Defaults to the viewport
+  //   rootMargin: '-100px -100px 0px 0px', // En cuanto se ve el elemento
+  //   threshold: 0 // Porcentaje de visibilidad del elemento
+  // }
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
+  // const observer = new IntersectionObserver((entries) => {
+  //   entries.forEach((entry) => {
 
-      const { isIntersecting } = entry
-      const article1 = entry.target.classList.contains('landing-1')
-      const article2 = entry.target.classList.contains('landing-2')
+  //     const { isIntersecting } = entry
+  //     const article1 = entry.target.classList.contains('landing-1')
+  //     const article2 = entry.target.classList.contains('landing-2')
 
 
-      if (entry.isIntersecting === false && entry.isIntersecting === false) {
-        landing.forEach(element => {
-            element.lastElementChild.classList.remove('hidden')
-            element.firstElementChild.classList.remove('h-[590px]')
-            element.firstElementChild.classList.add('h-60')
-        })
+  //     if (entry.isIntersecting === false && entry.isIntersecting === false) {
+  //       landing.forEach(element => {
+  //           element.lastElementChild.classList.remove('hidden')
+  //           element.firstElementChild.classList.remove('h-[590px]')
+  //           element.firstElementChild.classList.add('h-60')
+  //       })
 
-      }
+  //     }
 
-    })
-  }, observerOptions)
+  //   })
+  // }, observerOptions)
 
-  landing.forEach((section) => observer.observe(section))
+  // landing.forEach((section) => observer.observe(section))
 
 
 </script>

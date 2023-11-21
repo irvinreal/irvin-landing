@@ -1,11 +1,14 @@
 ---
-import DarkModeToggler from './DarkModeToggler.astro'
-import CloseNav from './icons/CloseNav.astro'
-import IconNav from './icons/IconNav.astro'
+import DarkModeToggler from './DarkModeToggler.astro';
+import CloseNav from './icons/CloseNav.astro';
+import IconNav from './icons/IconNav.astro';
+
+const { page } = Astro.props
+
 ---
 
 <header
-  class='absolute top-0 left-0 min-w-full min-h-[100dvh] text-center flex flex-col justify-center items-center gap-6'
+  class='absolute z-40 top-0 left-0 right-0 min-w-full h-[100vh] text-center flex flex-col justify-center items-center gap-6'
 >
   <div
     id='bg-white-navbar'
@@ -23,7 +26,7 @@ import IconNav from './icons/IconNav.astro'
     </div>
   </div>
   <div
-    class='bg-transparent group flex justify-end md:justify-start items-center absolute top-0 left-0 w-full h-14 group transition-all ease-in-out duration-200 md:hover:bg-zinc-800 md:hover:dark:bg-transparent md:hover:shadow-md md:hover:shadow-zinc-800 dark:md:hover:shadow-white/10 px-4'
+    class='bg-transparent group flex justify-end md:justify-start items-center absolute top-0 left-0 w-full h-14 group transition-all ease-in-out duration-200 dark:md:shadow-md dark:md:shadow-white/5 md:hover:bg-zinc-800 md:hover:dark:bg-transparent md:hover:shadow-md md:hover:shadow-zinc-800 dark:md:hover:shadow-white/10 px-4'
   >
     <div
       class='absolute top-3 right-3 z-50 md:sticky flex justify-center items-center w-fit md:hidden'
@@ -37,13 +40,13 @@ import IconNav from './icons/IconNav.astro'
     </div>
     <nav
       id='navbar'
-      class='opacity-0 md:opacity-100 absolute top-0 left-0 z-40 bg-white dark:bg-gray-950 dark:md:bg-gray-800 h-full py-10 md:py-0 md:h-fit md:bg-transparent dark:md:text-gray-100 w-full md:inline px-4 transition-all ease-out duration-700 md:group-hover:text-gray-200'
+      class='opacity-0  md:opacity-100 absolute top-0 left-0 z-40 bg-white dark:bg-gray-950 dark:md:bg-gray-800 h-full py-10 md:py-0 md:h-fit md:bg-transparent dark:md:text-gray-100 w-full md:inline px-4 transition-all ease-out duration-700 md:group-hover:text-gray-200'
     >
       <ul
         id='ulNavbar'
         class='hidden md:flex flex-col bg-white dark:bg-gray-950 dark:text-gray-100 md:bg-transparent dark:md:bg-gray-800 gap-10 md:pt-3 md:h-fit w-full px-10 md:flex-row md:gap-20 [&>li]:border-b [&>li]:border-zinc-400 dark:[&>li]:border-transparent dark:md:[&>li]:border-transparent md:[&>li]:group-hover:border-zinc-800 dark:md:[&>li]:group-hover:border-transparent [&>li]:shadow-[0px_5px_6px_-6px_#27272a]'
       >
-        <a href='/irvin-landing'>
+        <a href='/irvin-landing/'>
           <img
             class='w-8 h-8 bg-white p-1 rounded-full ms-8 transition-all ease-in-out duration-200 md:group-hover:invert'
             src='irvin.svg'
@@ -54,7 +57,17 @@ import IconNav from './icons/IconNav.astro'
         <li
           class='relative h-full cursor-pointer transition-all ease-out duration-150 md:hover:text-white group/item'
         >
-          <a href='#projects'>My Projects</a>
+          <a href='/irvin-landing/'>Home</a>
+          <div
+            
+            class={`absolute -z-10 -bottom-4 left-0 bg-transparent w-full h-12 transition-colors ease-out duration-200 md:group-hover/item:border-b-2 ${page === 'index' ? 'border-b-2' : ''}`}
+          >
+          </div>
+        </li>
+        <li
+          class='relative h-full cursor-pointer transition-all ease-out duration-150 md:hover:text-white group/item'
+        >
+          <a href='/irvin-landing/#projects' class="a-menu">My Projects</a>
           <div
             class='absolute -z-10 -bottom-4 left-0 bg-transparent w-full h-12 transition-colors ease-out duration-200 md:group-hover/item:border-b-2'
           >
@@ -65,14 +78,14 @@ import IconNav from './icons/IconNav.astro'
         >
           <a href='/irvin-landing/about'>About me</a>
           <div
-            class='absolute -z-10 -bottom-4 left-0 bg-transparent w-full h-12 transition-colors ease-out duration-200 md:group-hover/item:border-b-2'
+            class={`absolute -z-10 -bottom-4 left-0 bg-transparent w-full h-12 transition-colors ease-out duration-200 md:group-hover/item:border-b-2 ${page === 'about' ? 'border-b-2' : ''}`}
           >
           </div>
         </li>
         <li
           class='relative h-full cursor-pointer transition-all ease-out duration-150 md:hover:text-white group/item'
         >
-          <a href='#contactme'>Contact me</a>
+          <a href='/irvin-landing/#contactme' class="a-menu">Contact me</a>
           <div
             class='absolute -z-10 -bottom-4 left-0 bg-transparent w-full h-12 transition-colors ease-out duration-200 md:group-hover/item:border-b-2'
           >
@@ -80,6 +93,65 @@ import IconNav from './icons/IconNav.astro'
         </li>
       </ul>
     </nav>
-    <DarkModeToggler />
+    <span class={`${page !==  'index' ? 'hidden' : 'inline'}`}>
+      <DarkModeToggler />
+    </span>
   </div>
 </header>
+
+
+<!-- script for: navbar < btnMenu > -->
+<script>
+  const btnMenu = document.getElementById('btnMenu')
+  const navbar = document.getElementById('navbar')
+  const bgWhiteNavbar = document.getElementById('bg-white-navbar')
+  const ulNavbar = document.getElementById('ulNavbar')
+  const btnCloseNav = document.getElementById('btnCloseNav')
+  const darkModeToggler = document.querySelector('.darkModeToggler')
+  const a_menu = document.querySelectorAll('.a-menu')
+
+  const a_about_experiencia = document.getElementById('a-about-experiencia')
+
+  const openMenu = () => {
+    // Open menu
+    navbar.classList.toggle('opacity-0')
+    bgWhiteNavbar.classList.toggle('translate-y-full')
+    ulNavbar.classList.toggle('hidden')
+    ulNavbar.classList.toggle('flex')
+    btnMenu.classList.add('opacity-0')
+    btnMenu.classList.add('hidden')
+    darkModeToggler.classList.add('hidden')
+    a_about_experiencia.classList.add('z-10')
+    a_about_experiencia.classList.remove('z-50')
+  }
+
+  const closeMenu = () => {
+    // Close menu
+    navbar.classList.add('opacity-0')
+    bgWhiteNavbar.classList.toggle('translate-y-full')
+    ulNavbar.classList.toggle('hidden')
+    ulNavbar.classList.toggle('flex')
+    btnMenu.classList.remove('opacity-0')
+    btnMenu.classList.remove('hidden')
+    darkModeToggler.classList.remove('hidden')
+    a_about_experiencia.classList.remove('z-10')
+    a_about_experiencia.classList.add('z-50')
+  }
+
+  a_menu.forEach((a_element) => {
+    a_element.addEventListener('click', function () {
+      closeMenu()
+    })
+  });
+
+  const handleClickBtnMenu = (e) => {
+      openMenu()
+  }
+
+  const handleClickBtnCloseNav = (e) => {
+    closeMenu()
+  }
+
+  btnMenu.addEventListener('click', handleClickBtnMenu)
+  btnCloseNav.addEventListener('click', handleClickBtnCloseNav)
+</script>

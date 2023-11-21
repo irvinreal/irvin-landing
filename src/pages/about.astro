@@ -1,8 +1,59 @@
 ---
-import Layout from '../layouts/Layout.astro'
 import LandingHeader from '../components/LandingHeader.astro';
+import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title='Irvin Real | About me'>
-  <LandingHeader />
+<Layout title='About me'>
+  <section class="relative w-full max-h-[100vh] overflow-auto pt-20">
+    <LandingHeader page="about"  />
+
+    <!-- Saludo inicial -->
+      <h1 class="text-center md:text-start md:ps-24 py-4 tracking-wider dark:text text-xl dark:text-gray-400 font-semibold">Irvin Real</h1>
+      <h2 class="px-6 md:ps-24 dark:text-gray-400 font-medium">Hola 👋, Gracias por entrar a ver mi portafolio.</h2>
+
+    <div class="flex flex-col md:flex-row md:gap-10 md:mx-20">
+      <article class="mx-8 py-4 flex-1">
+
+        <h3 class="dark:text-gray-400 tracking-wide font-semibold py-1 text-justify">El proposito de este sitio es tener un portfolio donde pueda mostrar mi conocimiento y experiencia en el mundo del desarrollo web por lo tanto me gustaría presentarme..</h3>
+        <!-- <p class="dark:text-gray-400 font-thin text-justify mt-2">Hablaré un poco de mi vida porque creo que cada suceso me ha hido formando.
+        </p> -->
+
+        <!-- borrador 1 -->
+        <!-- <p class="dark:text-gray-400 font-thin text-justify">Escribo esto a la edad de 26 años y aunque me gustaría decir que tengo muchos años de experiencia en el mundo del desarrollo web o de software en general la realidad es que solo tengo 2 años aprendiendo y desarrollando diferentes proyectos en las diferentes tecnologías que ya dije que tengo <a href="/irvin-landing/#contactme" target="_blank" class="bg-gray-600 rounded-sm px-1 underline duration-100 relative z-50 hover:bg-gray-500 hover:text-gray-200">experiencia</a> y</p> -->
+
+        <!-- borrador 2 -->
+        <p class="dark:text-gray-400 font-thin text-justify">Me gustaría decir que tengo varios años de experiencia trabajando en el mundo del desarrollo de software aunque la realidad es que sólo tengo 2 años aprendiendo y desarrollando diferentes proyectos <a id="a-about-experiencia" href="/irvin-landing/#contactme" target="_blank" class="bg-gray-700/70 rounded-sm px-1 underline duration-100 relative z-50 hover:bg-gray-500 hover:text-gray-200">en estas técnologias.</a></p>
+
+        <p></p>
+
+      </article>
+      <!-- Habilidades blandas -->
+      <article class="mx-8 py-4">
+        <h3 class="dark:text-gray-400 tracking-wide font-semibold py-1">Habilidades blandas</h3>
+        <ul class="[&>li]:dark:text-gray-400 [&>li]:font-thin px-6 list-disc">
+          <li>Capacidad de hablar en público</li>
+          <li>Interacción con clientes</li>
+          <li>Trabajo en equipo</li>
+          <li>Alta Capacidad de apatación al cambio</li>
+          <li>Aprendizaje autónomo</li>
+          <li>Integridad y valores</li>
+          <li>Habilidades interpersonales como:
+            <ul class="list-disc ms-3 dark:text-gray-400">
+              <li>Paciencia</li>
+              <li>Empatía</li>
+              <li>Buena actitud</li>
+              <li>Buen sentido del humor</li>
+            </ul>
+          </li>
+          <li>Inteligencia emocional</li>
+          <li>Responsabilidad</li>
+          <li>Disciplina</li>
+          <li>Capacidad de Negociar, ceder o acordar</li>
+          <li>Proactividad</li>
+          <li>Capacidad para enseñar</li>
+          <li>Creatividad</li>
+        </ul>
+      </article>
+    </div>
+  </section>
 </Layout>
