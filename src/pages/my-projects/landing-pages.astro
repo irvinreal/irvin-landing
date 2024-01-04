@@ -2,14 +2,14 @@
 import { PAGES } from '../../constants/pages.js';
 import Article from '../../layouts/Article.astro';
 import ProjectSectionLayout from '../../layouts/ProjectSectionLayout.astro';
-import Projects from '../../layouts/Projects.astro';
+import Projects from '../../layouts/ProjectsLayout.astro';
 
 
 
 ---
 
 <ProjectSectionLayout title='Irvin Real | About me'>
-  <Projects client:load >
+  <Projects>
     {PAGES.landingPages.map(page => {
       return (<Article id={page.id} url={page.url} title={page.title} />)
     })}
