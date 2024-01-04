@@ -1,0 +1,13 @@
+---
+import SideBar from '../components/SectionProjects/SideBar.astro';
+import Layout from './Layout.astro';
+---
+
+<Layout title='Irvin Real | My projects'>
+  <div class="relative flex flex-col md:flex-row h-full" id="container">
+    <SideBar />
+    <slot />
+  </div>
+</Layout>
+
+

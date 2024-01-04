@@ -1,119 +1,11 @@
 ---
 import Email from './icons/Email.astro'
 import Github from './icons/Github.astro'
-import LinkedIn from './icons/LinkedIn.astro'
+// import LinkedIn from './icons/LinkedIn.astro'
 import WhatsApp from './icons/WhatsApp.astro'
-import HtmlSkill from './skills/HtmlSkill.astro'
-
-const CONTACT_MEAS = [
-  {
-    title: 'E-mail',
-    icon: Email
-  },
-  {
-    title: 'WhatsApp',
-    icon: WhatsApp
-  },
-  {
-    title: 'LinkedIn',
-    icon: LinkedIn
-  }
-]
-
-// Todo: reducir peso de imagenes https://compressjpeg.com/es/
-const SKILLS = [
-  {
-    imgId: 'html',
-    title: 'HTML 5',
-    spanId: 'htmlSpan',
-    img: 'imgs/skillsImgs/html.png',
-    alt: 'HTML Logo'
-  },
-  {
-    imgId: 'css',
-    title: 'CSS 3',
-    spanId: 'cssSpan',
-    img: 'imgs/skillsImgs/css.png',
-    alt: 'CSS Logo'
-  },
-  {
-    imgId: 'javascript',
-    title: 'JavaScript',
-    spanId: 'javascriptSpan',
-    img: 'imgs/skillsImgs/javascript.png',
-    alt: 'JavaScript Logo'
-  },
-  {
-    imgId: 'tailwindcss',
-    title: 'Tailwind CSS',
-    spanId: 'tailwindcssSpan',
-    img: 'imgs/skillsImgs/tailwindcss.png',
-    alt: 'Tailwind CSS Logo'
-  },
-  {
-    imgId: 'bootstrap',
-    title: 'Bootstrap',
-    spanId: 'bootstrapSpan',
-    img: 'imgs/skillsImgs/bootstrap.png',
-    alt: 'Bootstrap Logo'
-  },
-  {
-    imgId: 'reactjs',
-    title: 'React js',
-    spanId: 'reactjsSpan',
-    img: 'imgs/skillsImgs/reactjs.png',
-    alt: 'Reactjs Logo'
-  },
-  {
-    imgId: 'nextjs',
-    title: 'Next js',
-    spanId: 'nextjsSpan',
-    img: 'imgs/skillsImgs/nextjs.png',
-    alt: 'Nextjs Logo'
-  },
-  {
-    imgId: 'git',
-    title: 'Git',
-    spanId: 'gitSpan',
-    img: 'imgs/skillsImgs/git.png',
-    alt: 'Git Logo'
-  },
-  {
-    imgId: 'github',
-    title: 'Github',
-    spanId: 'githubSpan',
-    img: 'imgs/skillsImgs/github.png',
-    alt: 'Github Logo'
-  },
-  {
-    imgId: 'msql',
-    title: 'mySql',
-    spanId: 'mysqlSpan',
-    img: 'imgs/skillsImgs/mysql.png',
-    alt: 'MongoDB Logo'
-  },
-  {
-    imgId: 'mongodb',
-    title: 'MongoDB',
-    spanId: 'mongodbSpan',
-    img: 'imgs/skillsImgs/mongodb.webp',
-    alt: 'MongoDB Logo'
-  },
-  {
-    imgId: 'nodejs',
-    title: 'nodejs',
-    spanId: 'nodejsSpan',
-    img: 'imgs/skillsImgs/nodejs.png',
-    alt: 'Node js Logo'
-  },
-  {
-    imgId: 'expressjs',
-    title: 'expressjs',
-    spanId: 'expressjsSpan',
-    img: 'imgs/skillsImgs/expressjs.png',
-    alt: 'Express js Logo'
-  }
-]
+import HtmlSkill from './HtmlSkill.astro'
+import AstroSVG from './icons/Astro.astro'
+import { SKILLS } from '../constants/footerSection.js'
 ---
 
 <section
@@ -128,7 +20,9 @@ const SKILLS = [
     id='container-skills'
     class='h-full w-full text-center flex flex-col justify-center items-center'
   >
-    <h3 class='font-medium text-teal-950 dark:text-gray-100 inline-block tracking-widest'>
+    <h3
+      class='font-medium text-teal-950 dark:text-gray-100 inline-block tracking-widest'
+    >
       Skills
     </h3>
     <div
@@ -156,56 +50,116 @@ const SKILLS = [
     <div
       class='absolute top-20 flex flex-col gap-3 [&>a]:flex [&>a]:items-center [&>a]:gap-2 [&>a]:text-sm [&>a]:text-teal-950 [&>a]:font-thin'
     >
-    <!-- hover: mostrar la dirección de correo o el número de whatsApp mediante animación -->
-    <div class="relative">
-      <div class="relative z-10 w-40 h-6 hover:w-80 group/email flex items-center">
+      <!-- hover: mostrar la dirección de correo o el número de whatsApp mediante animación -->
+      <div class='relative'>
+        <div
+          class='relative z-10 w-40 h-6 hover:w-80 group/email flex items-center'
+        >
+          <a
+            href='mailto:irvin.glez.real@hotmail.com'
+            target='_blank'
+            class='flex w-40 items-center gap-2 absolute z-40 bg-neutral-800 dark:bg-gray-950 text-white px-4 py-1 rounded-sm transition-colors ease-out duration-200 md:cursor-pointer md:hover:bg-neutral-700 dark:md:hover:bg-gray-900'
+            ><span class='text-white'>{(<Email />)}</span><span
+              class='text-white text-xs'>E-mail</span
+            ></a
+          >
 
-        <a href="mailto:irvin.glez.real@hotmail.com" target="_blank" class="flex w-40 items-center gap-2 absolute z-40 bg-neutral-800 dark:bg-gray-950 text-white px-4 py-1 rounded-sm transition-colors ease-out duration-200 md:cursor-pointer md:hover:bg-neutral-700 dark:md:hover:bg-gray-900"><span class="text-white">{<Email />}</span><span class='text-white text-xs'>E-mail</span></a>
-
-        <div class="a-reference flex justify-center items-center bg-white absolute -z-10 top-0 left-0 w-40 h-7 rounded transition-all duration-500 ease-in-out group-hover/email:translate-x-full group-hover/email:ms-3 hover:cursor-pointer" >
-          <div class="relative w-full h-full flex justify-center items-center group/item">
-            <p class="text-xs h-full w-full flex justify-center items-center email-text-to-copy">irvin.glez.real@hotmail.com</p>
-            <p class="copyMessage_reference bg-white/30 opacity-0 hidden w-fit h-7 border rounded absolute left-full ms-1 top-0 px-2 text-xs transition-all duration-500 ease-in-out group-hover/item:flex group-hover/item:items-center group-hover/item:opacity-100 text-white">copiar!</p>
+          <div
+            class='a-reference flex justify-center items-center bg-white absolute -z-10 top-0 left-0 w-40 h-7 rounded transition-all duration-500 ease-in-out group-hover/email:translate-x-full group-hover/email:ms-3 hover:cursor-pointer'
+          >
+            <div
+              class='relative w-full h-full flex justify-center items-center group/item'
+            >
+              <p
+                class='text-xs h-full w-full flex justify-center items-center email-text-to-copy'
+              >
+                irvin.glez.real@hotmail.com
+              </p>
+              <p
+                class='copyMessage_reference bg-white/30 opacity-0 hidden w-fit h-7 border rounded absolute left-full ms-1 top-0 px-2 text-xs transition-all duration-500 ease-in-out group-hover/item:flex group-hover/item:items-center group-hover/item:opacity-100 text-white'
+              >
+                copiar!
+              </p>
+            </div>
+          </div>
+          <div class='absolute z-30 top-0 left-0 w-40 h-7 bg-white rounded'>
           </div>
         </div>
-        <div class="absolute z-30 top-0 left-0 w-40 h-7 bg-white rounded"></div>
       </div>
-    </div>
-    <div class="relative z-10 w-40 h-6 hover:w-80 group flex items-center">
+      <div class='relative z-10 w-40 h-6 hover:w-80 group flex items-center'>
+        <a
+          href='https://wa.me/3333533176?text=Hola+Irvin!'
+          target='_blank'
+          class='flex w-40 items-center gap-2 absolute z-50 bg-neutral-800 dark:bg-gray-950 text-white px-4 py-1 rounded-sm transition-all ease-out duration-500 md:cursor-pointer md:hover:bg-neutral-700 dark:md:hover:bg-gray-900'
+          ><span class='text-white'>{(<WhatsApp />)}</span><span
+            class='text-white text-xs'>whatsApp</span
+          ></a
+        >
 
-    <a href="https://wa.me/3333533176?text=Hola+Irvin!" target="_blank" class="flex w-40 items-center gap-2 absolute z-50 bg-neutral-800 dark:bg-gray-950 text-white px-4 py-1 rounded-sm transition-all ease-out duration-500 md:cursor-pointer md:hover:bg-neutral-700 dark:md:hover:bg-gray-900"><span class="text-white">{<WhatsApp />}</span><span class='text-white text-xs'>whatsApp</span></a>
-
-    <div class="a_box-reference flex md:hidden w-40 items-center gap-2 absolute z-40 bg-neutral-800 dark:bg-gray-950 text-white px-4 py-1 rounded-sm transition-all ease-out duration-500 md:cursor-pointer md:hover:bg-neutral-700 dark:md:hover:bg-gray-900"><span class="text-white">{<WhatsApp />}</span><span class='text-white text-xs'>whatsApp</span></div>
-
-      <div class="a-reference flex justify-center items-center bg-white absolute z-10 top-0 left-0 w-40 h-7 rounded transition-all duration-500 ease-in-out group-hover:translate-x-full md:group-hover:ms-3 hover:cursor-pointer group-focus:z-50" >
-        <div class="relative w-full h-full flex justify-center items-center group/item">
-          <p class="text-xs h-full w-full flex justify-center items-center wapp-text-to-copy"> (+52) 33 33 53 31 76</p>
-          <p class="copyMessage_reference bg-white/30 opacity-0 hidden w-fit h-7 border rounded absolute left-full ms-1 top-0 px-2 text-xs transition-all duration-500 ease-in-out group-hover:flex group-hover:items-center group-hover/item:opacity-100 text-white">copiar!</p>
+        <div
+          class='a_box-reference flex md:hidden w-40 items-center gap-2 absolute z-40 bg-neutral-800 dark:bg-gray-950 text-white px-4 py-1 rounded-sm transition-all ease-out duration-500 md:cursor-pointer md:hover:bg-neutral-700 dark:md:hover:bg-gray-900'
+        >
+          <span class='text-white'>{(<WhatsApp />)}</span><span
+            class='text-white text-xs'>whatsApp</span
+          >
         </div>
-      </div>
-      <div class="absolute z-30 top-0 left-0 w-40 h-7 bg-white rounded"></div>
+
+        <div
+          class='a-reference flex justify-center items-center bg-white absolute z-10 top-0 left-0 w-40 h-7 rounded transition-all duration-500 ease-in-out group-hover:translate-x-full md:group-hover:ms-3 hover:cursor-pointer group-focus:z-50'
+        >
+          <div
+            class='relative w-full h-full flex justify-center items-center group/item'
+          >
+            <p
+              class='text-xs h-full w-full flex justify-center items-center wapp-text-to-copy'
+            >
+              (+52) 33 33 53 31 76
+            </p>
+            <p
+              class='copyMessage_reference bg-white/30 opacity-0 hidden w-fit h-7 border rounded absolute left-full ms-1 top-0 px-2 text-xs transition-all duration-500 ease-in-out group-hover:flex group-hover:items-center group-hover/item:opacity-100 text-white'
+            >
+              copiar!
+            </p>
+          </div>
+        </div>
+        <div class='absolute z-30 top-0 left-0 w-40 h-7 bg-white rounded'></div>
       </div>
     </div>
 
-    <div class="absolute bottom-0 left-0 w-full flex justify-center items-center py-2">
-      <a href="https://github.com/irvinreal" target="_blank" class='w-fit text-gray-400 text-sm font-normal flex justify-center items-center gap-1 cursor-pointer'>
+    <div
+      class='absolute bottom-0 left-0 w-full flex justify-center items-center gap-14 py-2 px-12 bg-black/20'
+    >
+      <a
+        href='https://github.com/irvinreal'
+        target='_blank'
+        class='w-fit text-gray-200 text-sm font-extralight tracking-widest flex justify-center items-center gap-2 cursor-pointer'
+      >
         <span><Github /></span>
-        <span>Irvin Real</span>
+        <span>irvinreal</span>
+      </a>
+      <a
+        href='https://astro.build/'
+        target='_blank'
+        class='w-fit text-gray-200 text-sm font-extralight tracking-widest flex justify-center items-center gap-1 cursor-pointer'
+      >
+        <span>Created with</span>
+        <span class='pt-1'><AstroSVG /></span>
       </a>
     </div>
-
   </section>
 </section>
 
 <script>
   const a_reference = document.querySelectorAll('.a-reference')
-  const copyMessage_reference = document.querySelectorAll('.copyMessage_reference')
+  const copyMessage_reference = document.querySelectorAll(
+    '.copyMessage_reference'
+  )
 
-  a_reference.forEach(reference => {
+  a_reference.forEach((reference) => {
     reference.addEventListener('click', function (e) {
       const email = e.target.classList.value.includes('email-text-to-copy')
       const wapp = e.target.classList.value.includes('wapp-text-to-copy')
-      
+
       if (email || wapp) {
         const toCopy = e.target.innerText
         navigator.clipboard.writeText(toCopy)
@@ -215,7 +169,7 @@ const SKILLS = [
       }
 
       // Reiniciar el estado de los copyMessage
-      copyMessage_reference.forEach(element => {
+      copyMessage_reference.forEach((element) => {
         element.classList.remove('border-gray-950')
         element.classList.remove('text-gray-950')
         element.innerText = 'copiar!'
@@ -233,8 +187,8 @@ const SKILLS = [
   // Si la pantalla tiene menos de 768px
   if (window.innerWidth < 768) {
     const a_reference = document.querySelectorAll('.a_box-reference')
-    
-    a_reference.forEach(reference => {
+
+    a_reference.forEach((reference) => {
       reference.addEventListener('touchstart', function () {
         console.log(a_reference.parentElement)
       })

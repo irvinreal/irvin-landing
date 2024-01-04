@@ -1,17 +1,20 @@
 ---
-import LandingHeader from '../components/LandingHeader.astro';
+import HtmlSkill from '../components/HtmlSkill.astro';
+import AstroSVG from '../components/icons/Astro.astro';
+import Email from '../components/icons/Email.astro';
+import Github from '../components/icons/Github.astro';
+import { SKILLS } from '../constants/footerSection';
 import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title='About me'>
-  <section class="relative w-full max-h-[100vh] overflow-auto pt-20">
-    <LandingHeader page="about"  />
+  <main class="relative w-full">
 
     <!-- Saludo inicial -->
-      <h1 class="text-center md:text-start md:ps-24 py-4 tracking-wider dark:text text-xl dark:text-gray-400 font-semibold">Irvin Real</h1>
+      <h1 class="text-center md:text-start md:ps-24 mt-5 py-4 tracking-wider dark:text text-xl dark:text-gray-400 font-semibold">Irvin Real</h1>
       <h2 class="px-6 md:ps-24 dark:text-gray-400 font-medium">Hola 👋, Gracias por entrar a ver mi portafolio.</h2>
 
-    <div class="flex flex-col md:flex-row md:gap-10 md:mx-20">
+    <div class="flex flex-col md:gap-10 md:mx-20 py-10">
       <article class="mx-8 py-4 flex-1">
 
         <h3 class="dark:text-gray-400 tracking-wide font-semibold py-1 text-justify">El proposito de este sitio es tener un portfolio donde pueda mostrar mi conocimiento y experiencia en el mundo del desarrollo web por lo tanto me gustaría presentarme..</h3>
@@ -22,14 +25,33 @@ import Layout from '../layouts/Layout.astro';
         <!-- <p class="dark:text-gray-400 font-thin text-justify">Escribo esto a la edad de 26 años y aunque me gustaría decir que tengo muchos años de experiencia en el mundo del desarrollo web o de software en general la realidad es que solo tengo 2 años aprendiendo y desarrollando diferentes proyectos en las diferentes tecnologías que ya dije que tengo <a href="/irvin-landing/#contactme" target="_blank" class="bg-gray-600 rounded-sm px-1 underline duration-100 relative z-50 hover:bg-gray-500 hover:text-gray-200">experiencia</a> y</p> -->
 
         <!-- borrador 2 -->
-        <p class="dark:text-gray-400 font-thin text-justify">Me gustaría decir que tengo varios años de experiencia trabajando en el mundo del desarrollo de software aunque la realidad es que sólo tengo 2 años aprendiendo y desarrollando diferentes proyectos <a id="a-about-experiencia" href="/irvin-landing/#contactme" target="_blank" class="bg-gray-700/70 rounded-sm px-1 underline duration-100 relative z-50 hover:bg-gray-500 hover:text-gray-200">en estas técnologias.</a></p>
+        <p class="dark:text-gray-400 font-thin text-justify">Me gustaría decir que tengo varios años de experiencia trabajando en el mundo del desarrollo de software aunque la realidad es que sólo tengo 2 años aprendiendo y desarrollando diferentes proyectos <a id="a-about-experiencia" href="/irvin-landing/#contactme" target="_blank" class="bg-gray-500/70 rounded-sm px-1 underline text-gray-200 border border-gray-200 duration-100 relative z-50 hover:bg-gray-950 hover:text-gray-400 hover:border-gray-600">en las técnologias listadas dentro de mis skills.</a></p>
 
         <p></p>
 
       </article>
+
+      <article class="text-center">
+        <h3 class='font-medium text-teal-950 dark:text-gray-100 inline-block tracking-widest'>
+          My Skills
+        </h3>
+        <div class='relative md:px-10 my-5 w-full gap-y-3 flex justify-center items-center flex-wrap py-2'>
+          {
+            SKILLS.map(({ img, alt, imgId = '' }) => (
+              <article class='min-w-fit relative group art-skill-An'>
+                <div class='md:w-fit mx-3 dark:drop-shadow-[0_8px_6px_rgba(0,0,0,0.5)] drop-shadow-[0_4px_3px_rgba(0,0,0,0.4)]'>
+                  {<HtmlSkill img={img} alt={alt} imgId={imgId} />}
+                </div>
+              </article>
+            ))
+          }
+        </div>
+
+      </article>
+
       <!-- Habilidades blandas -->
       <article class="mx-8 py-4">
-        <h3 class="dark:text-gray-400 tracking-wide font-semibold py-1">Habilidades blandas</h3>
+        <h3 class="dark:text-gray-100 tracking-wide font-semibold py-1">Soft Skills</h3>
         <ul class="[&>li]:dark:text-gray-400 [&>li]:font-thin px-6 list-disc">
           <li>Capacidad de hablar en público</li>
           <li>Interacción con clientes</li>
@@ -55,5 +77,37 @@ import Layout from '../layouts/Layout.astro';
         </ul>
       </article>
     </div>
-  </section>
+    <footer class=' w-full flex justify-center items-center gap-14 py-2 px-12 bg-black/20'>
+      <a href='mailto:irvin.glez.real@hotmail.com' target='_blank' class='w-fit dark:text-gray-200 text-sm font-extralight tracking-widest flex justify-center items-center gap-2 cursor-pointer'>
+        <span><Email /></span>
+        <span>Mail</span>
+      </a>
+      <a
+        href='https://github.com/irvinreal'
+        target='_blank'
+        class='w-fit dark:text-gray-200 text-sm font-extralight tracking-widest flex justify-center items-center gap-2 cursor-pointer'
+      >
+        <span><Github /></span>
+        <span>irvinreal</span>
+      </a>
+      <a
+        href='https://astro.build/'
+        target='_blank'
+        class='w-fit dark:text-gray-200 text-sm font-extralight tracking-widest flex justify-center items-center gap-1 cursor-pointer'
+      >
+        <span>Created with</span>
+        <span class='pt-1'><AstroSVG /></span>
+      </a>
+    </footer>
+  </main>
 </Layout>
+
+<style>
+  body::-webkit-scrollbar {
+    width: 7px;
+    background: #000618;
+  }
+  body::-webkit-scrollbar-thumb {
+    background: #adadad;
+  }
+</style>

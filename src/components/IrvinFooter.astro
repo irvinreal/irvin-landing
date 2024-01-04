@@ -1,0 +1,45 @@
+---
+import HtmlSkill from '../components/HtmlSkill.astro';
+import { MY_PROJECTS, SKILLS } from '../constants/footerSection';
+
+---
+
+<section class="mb-12 mt-10">
+  <div class="flex h-14 items-center md:px-20">
+    <div class="w-fit h-full group hover:w-full relative">
+      <button class="bg-gray-100/5 shadow-md shadow-black/40 w-44 h-8 rounded-sm text-lg font-semibold tracking-wide text-white duration-75 group-hover:animate-desapearDown absolute z-30 border-b-[4px] border-gray-950">
+        My Projects
+      </button>
+      <div class='relative w-full h-full gap-y-3 hidden group-hover:flex justify-center items-center flex-wrap group-hover:animate-apearLeft'>
+      {
+        MY_PROJECTS.map(({ title, img, alt, imgId = '' }) => (
+          <article class='min-w-fit relative group art-skill-An'>
+            <div class='md:w-fit mx-3 dark:drop-shadow-[0_8px_6px_rgba(0,0,0,0.5)] drop-shadow-[0_4px_3px_rgba(0,0,0,0.4)]'>
+              <span class="text-gray-100 font-extralight">{title}</span>
+              {<HtmlSkill img={img} alt={alt} imgId={imgId} />}
+            </div>
+          </article>
+        ))
+      }
+      </div>
+    </div>
+  </div>
+  <div class="flex h-14 items-center md:px-20">
+    <div class="w-fit h-full group hover:w-full relative">
+      <a href="/irvin-landing/about/" class="bg-gray-100/5 shadow-md shadow-black/40 w-44 h-8 rounded-sm text-lg font-semibold tracking-wide text-white duration-75 group-hover:animate-desapearDown absolute z-30 text-center border-b-[4px] border-gray-950">
+        My Skills
+      </a>
+      <div class='relative w-full h-full gap-y-3 hidden group-hover:flex justify-center items-center flex-wrap group-hover:animate-apearLeft'>
+      {
+        SKILLS.map(({ img, alt, imgId = '' }) => (
+          <article class='min-w-fit relative group art-skill-An'>
+            <div class='md:w-fit mx-3 dark:drop-shadow-[0_8px_6px_rgba(0,0,0,0.5)] drop-shadow-[0_4px_3px_rgba(0,0,0,0.4)]'>
+              {<HtmlSkill img={img} alt={alt} imgId={imgId} />}
+            </div>
+          </article>
+        ))
+      }
+      </div>
+    </div>
+  </div>
+</section>

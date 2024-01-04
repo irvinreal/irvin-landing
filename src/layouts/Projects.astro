@@ -1,0 +1,12 @@
+---
+const { pathname } = Astro.url
+
+const landingP = '/irvin-landing/my-projects/landing-pages'
+---
+
+<!-- flex flex-col justify-center -->
+<section
+  class='w-full h-full md:min-h-screen flex flex-col justify-start relative overflow-y-scroll'
+>   
+    <slot />
+</section>

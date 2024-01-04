@@ -1,40 +1,11 @@
 ---
-import Aboutme from '../components/Aboutme.astro'
-import ComeUpBtn from '../components/ComeUpBtn.astro'
-import FooterSection from '../components/FooterSection.astro'
-import HeaderSection from '../components/HeaderSection.astro'
-import LandingHeader from '../components/LandingHeader.astro'
-import Projects from '../components/Projects.astro'
-import Layout from '../layouts/Layout.astro'
+import IrvinHeader from '../components/IrvinHeader.astro';
+import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title='Irvin Real | Front End Web Developer'>
-  <main
-    id='scroller'
-    class='md:snap-y md:snap-mandatory relative w-full h-screen max-h-[100vh] overflow-auto scroll-smooth'
-  >
-    <LandingHeader page="index" />
-    <!-- Presentation and navegation links -->
-    <div class='snap-center'>
-      <HeaderSection />
-    </div>
-    <!-- Go to other pages or do something -->
-    <div class='snap-center'>
-      <Projects />
-    </div>
-    <!-- Footer -->
-    <footer class='snap-center'>
-      <FooterSection />
-    </footer>
-    <!-- About me -->
-    <div class='snap-center'>
-      <Aboutme />
-    </div>
-    <ComeUpBtn />
-    <!-- Se deshabilita por cambio de scroll sección por sección a scroll normal -->
-    <!-- <ComeDownBtn /> -->
+  <main class='w-full h-full flex flex-col pt-28'>
+      <IrvinHeader />
+      <!-- <IrvinFooter /> -->
   </main>
 </Layout>
-
-
-

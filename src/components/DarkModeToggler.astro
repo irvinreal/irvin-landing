@@ -2,7 +2,7 @@
   class='absolute top-5 md:top-4 left-10 md:left-[unset] md:right-12 z-50 darkModeToggler'
 >
   <input type='checkbox' id='check' class='toggle' />
-  <label for='check' class='flex items-center gap-2'> Dark mode</label>
+  <label for='check' class='flex flex-col items-center md:flex-row gap-2 text-xs md:text-sm'> Dark mode</label>
 </div>
 
 <style>
@@ -75,6 +75,13 @@
     color: rgb(85, 132, 185);
     content: 'red';
   }
+
+  @media (max-width: 768px) {
+    input[type='checkbox'].toggle + label::after {
+      top: -2px;
+      left: 14px;
+    }
+  }
 </style>
 
 <script>
@@ -86,11 +93,11 @@
     (!('theme' in localStorage) &&
       window.matchMedia('(prefers-color-scheme: dark)').matches)
   ) {
-    document.documentElement.classList.add('dark')
+    doc.classList.add('dark')
     darkModeToggler.checked = true
 
   } else {
-    document.documentElement.classList.remove('dark')
+    doc.classList.remove('dark')
     darkModeToggler.checked = false
 
   }
@@ -105,24 +112,29 @@
   // // Whenever the user explicitly chooses to respect the OS preference
   // localStorage.removeItem('theme')
   // ------------------------------------------------------
+  // console.dir(darkModeToggler)
+  
+  // darkModeToggler.checked = false
 
-  if (document.firstElementChild.className === 'dark') {
+
+
+  if (window.localStorage.getItem('theme') === 'dark') {
     darkModeToggler.checked = true
   } else {
     darkModeToggler.checked = false
   }
 
-  // const isChecked = darkModeToggler.checked
-
   darkModeToggler.addEventListener('click', function (e) {
-    const isChecked = e.target.checked 
-    doc.classList.toggle('dark')
+    const isChecked = darkModeToggler.checked 
+    // doc.classList.toggle('dark')
     if (isChecked) {
-      console.log('Checked!')
+      // console.log('Checked!')
       window.localStorage.setItem('theme', 'dark')
+      doc.classList.add('dark')
     } else if (!isChecked) {
-      console.log('Not Check!')
+      // console.log('Not Check!')
       window.localStorage.setItem('theme', 'ligth')
+      doc.classList.remove('dark')
     }
   })
 </script>
