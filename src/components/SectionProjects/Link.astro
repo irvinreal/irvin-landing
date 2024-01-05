@@ -1,7 +1,7 @@
 ---
 const { titleBtn, stnVisible, href } = Astro.props
 ---
-<li class=`sidebar-link-li w-full text-center ${stnVisible ? 'block' : 'hidden'}`>
+<li class=`sidebar-link-li w-full text-center ${stnVisible ? 'block' : 'hidden md:block'}`>
   <a
     href={href}
     class={`w-full block font-extralight tracking-wider text-start ps-6 duration-100 hover:bg-zinc-800/70 hover:dark:bg-gray-700/80 hover:text-white py-1 px-4 rounded-sm ${

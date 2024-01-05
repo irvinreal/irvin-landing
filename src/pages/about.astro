@@ -1,6 +1,5 @@
 ---
 import HtmlSkill from '../components/HtmlSkill.astro';
-import AstroSVG from '../components/icons/Astro.astro';
 import Email from '../components/icons/Email.astro';
 import Github from '../components/icons/Github.astro';
 import { SKILLS } from '../constants/footerSection';
@@ -96,13 +95,13 @@ import Layout from '../layouts/Layout.astro';
         class='w-fit dark:text-gray-200 text-sm font-extralight tracking-widest flex justify-center items-center gap-1 cursor-pointer'
       >
         <span>Created with</span>
-        <span class='pt-1'><AstroSVG /></span>
+        <span class='pt-1'><img alt='astro logo' src='/imgs/astro-logo-light-gradient.svg' width='60px' /></span>
       </a>
     </footer>
   </main>
 </Layout>
 
-<style>
+<!-- <style>
   body::-webkit-scrollbar {
     width: 7px;
     background: #000618;
@@ -110,4 +109,4 @@ import Layout from '../layouts/Layout.astro';
   body::-webkit-scrollbar-thumb {
     background: #adadad;
   }
-</style>
+</style> -->
