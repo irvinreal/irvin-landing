@@ -17,17 +17,17 @@ const react = `${path}/react`
     <ul class='md:mt-32 ms-1 md:mx-6 md:pb-10 text-zinc-600 dark:text-white text-center w-full h-full flex flex-col gap-3 md:border-l md:border-r border-gray-800'>
           <Link
           titleBtn='Landing Pages'
-          stnVisible={pathname.endsWith('/landing-pages')}
+          stnVisible={pathname.includes('/landing-pages')}
           href={landingP}
           />
           <Link 
           titleBtn='Games' 
-          stnVisible={pathname.endsWith('/games')} 
+          stnVisible={pathname.includes('/games')} 
           href={games}
           />
           <Link
           titleBtn="React"
-          stnVisible={pathname.endsWith('/react')} 
+          stnVisible={pathname.includes('/react')} 
           href={react}
           />
     </ul>
