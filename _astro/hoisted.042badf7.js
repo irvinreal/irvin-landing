@@ -1,1 +1,0 @@
-import"./hoisted.791f1848.js";const s=document.getElementById("aside-btn"),t=document.getElementById("aside-container"),n=document.getElementsByClassName("sidebar-link-li");s.addEventListener("click",()=>{t.classList.toggle("h-32");for(const e of n)console.log(),e.classList.add("block"),e.classList.remove("hidden")});
