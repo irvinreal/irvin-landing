@@ -76,10 +76,10 @@ import Layout from '../layouts/Layout.astro';
         </ul>
       </article>
     </div>
-    <footer class=' w-full flex justify-center items-center gap-14 py-2 px-12 bg-black/20'>
+    <footer class=' w-full flex justify-start md:justify-center items-center gap-4 md:gap-14 py-2 px-12 bg-black/20'>
       <a href='mailto:irvin.glez.real@hotmail.com' target='_blank' class='w-fit dark:text-gray-200 text-sm font-extralight tracking-widest flex justify-center items-center gap-2 cursor-pointer'>
         <span><Email /></span>
-        <span>Mail</span>
+        <span class="hidden md:block">Mail</span>
       </a>
       <a
         href='https://github.com/irvinreal'
@@ -87,15 +87,15 @@ import Layout from '../layouts/Layout.astro';
         class='w-fit dark:text-gray-200 text-sm font-extralight tracking-widest flex justify-center items-center gap-2 cursor-pointer'
       >
         <span><Github /></span>
-        <span>irvinreal</span>
+        <span class="hidden md:block">irvinreal</span>
       </a>
       <a
         href='https://astro.build/'
         target='_blank'
-        class='w-fit dark:text-gray-200 text-sm font-extralight tracking-widest flex justify-center items-center gap-1 cursor-pointer'
+        class='flex md:justify-center items-center md:gap-1 w-full md:w-fit dark:text-gray-200 text-sm font-extralight tracking-widest cursor-pointer'
       >
-        <span>Created with</span>
-        <span class='pt-1'><img alt='astro logo' src='/irvin-landing/imgs/astro-logo-light-gradient.svg' width='60px' /></span>
+        <span class="flex w-full text-end md:w-fit">Created with</span>
+        <span class='w-fit'><img alt='astro logo' src='/irvin-landing/imgs/astro-logo-light-gradient.svg'  class="max-h-10" /></span>
       </a>
     </footer>
   </main>
