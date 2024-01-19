@@ -10,7 +10,7 @@ const { page } = Astro.props
 
 <header
   id="header-container"
-  class='sticky z-[1000] top-0 left-0 right-0 min-w-full h-20 md:h-14 text-center flex flex-col justify-center items-center gap-6 bg-white dark:bg-gray-800'
+  class='fixed z-[1000] top-0 left-0 right-0 min-w-full h-20 md:h-14 text-center flex flex-col justify-center items-center gap-6 bg-white dark:bg-gray-800'
 >
   <div
     id='bg-white-navbar'
@@ -28,7 +28,7 @@ const { page } = Astro.props
     </div>
   </div>
   <div
-    class='bg-transparent group flex justify-end md:justify-start items-center absolute top-0 left-0 w-full h-14 group transition-all ease-in-out duration-200 dark:md:shadow-md dark:md:shadow-white/5 md:hover:bg-zinc-800 md:hover:dark:bg-transparent md:hover:shadow-md md:hover:shadow-zinc-800 dark:md:hover:shadow-white/10 px-4'
+    class='bg-transparent group flex justify-end md:justify-start items-center absolute top-0 left-0 w-full h-14 group transition-all ease-in-out duration-200 md:shadow-md md:shadow-white dark:md:shadow-md dark:md:shadow-white/5 md:hover:bg-zinc-800 md:hover:dark:bg-transparent md:hover:shadow-md md:hover:shadow-zinc-800 dark:md:hover:shadow-white/10 px-4'
   >
     <div
       class='absolute top-3 right-3 z-50 md:sticky flex justify-center items-center w-fit md:hidden'
@@ -87,7 +87,7 @@ const { page } = Astro.props
           <a href='/irvin-landing/my-projects/landing-pages' class='a-menu'>My Projects</a>
           <div
             class={`absolute -z-10 -bottom-4 left-0 bg-transparent w-full h-12 transition-colors ease-out duration-200 md:group-hover/item:border-b-2 ${
-              pathname.endsWith('/landing-pages') || pathname.endsWith('/full-stack') || pathname.endsWith('/games')  ? 'border-b-2 border-gray-400 dark:border-gray-100' : ''
+              pathname.includes('/landing-pages') || pathname.includes('/full-stack') || pathname.includes('/games')  ? 'border-b-2 border-gray-400 dark:border-gray-100' : ''
             }`}
           >
           </div>
@@ -98,7 +98,7 @@ const { page } = Astro.props
           <a href='/irvin-landing/about'>About me</a>
           <div
             class={`absolute -z-10 -bottom-4 left-0 bg-transparent w-full h-12 transition-colors ease-out duration-200 md:group-hover/item:border-b-2 ${
-              pathname === '/irvin-landing/about' ? 'border-b-2 border-gray-400 dark:border-gray-100' : ''
+              pathname.includes('/about') ? 'md:border-b-2 border-gray-400 dark:border-gray-100' : ''
             }`}
           >
           </div>
