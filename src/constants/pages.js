@@ -28,5 +28,11 @@ export const PAGES = {
       url: 'https://react-tic-tac-toe-dusky.vercel.app/'
     }
   ],
-  react: []
-}
+  react: [
+    {
+      id: '#punto-dulce-reposteria',
+      title: 'Punto Dulce',
+      url: 'https://punto-dulce.vercel.app/'
+    }
+  ]
+};
