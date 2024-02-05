@@ -1,5 +1,5 @@
 ---
-const { id, url, title } = Astro.props
+const { id, url, title, subtitle } = Astro.props
 ---
 
 <article
@@ -20,8 +20,12 @@ class='md:landing h-full max-h-36 bg-white landing-1 relative overflow-hidden tr
   <span class='text-white dark:text-white/70 text-6xl font-semibold tracking-wider'
     >{title}</span
   >
-  <span class='text-white dark:text-white/70 text-lg font-light tracking-widest'
-    >Landing</span
+  <span class='text-white/40 dark:text-white/70 text-md font-light tracking-[4px] pt-2'
+    >{
+      subtitle === 'land' ? 'Landing Page': '' || 
+      subtitle === 'game' ? 'Game' : '' || 
+      subtitle === 'react' ? 'React Project' : '' || 
+      subtitle}</span
   >
 </div>
 <!-- class for anchor below: md:-z-10 -->

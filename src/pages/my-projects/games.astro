@@ -9,7 +9,7 @@ import Projects from '../../layouts/ProjectsLayout.astro';
   <Projects>
     {PAGES.games.map((page) => {
       return (
-      <Article url={page.url} title={page.title} />
+      <Article id={page.id} url={page.url} title={page.title} subtitle={page.subtitle} />
       )
     })}
   </Projects>
