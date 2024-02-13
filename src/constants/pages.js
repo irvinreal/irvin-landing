@@ -39,6 +39,12 @@ export const PAGES = {
       title: 'Punto Dulce',
       url: 'https://punto-dulce.vercel.app/',
       subtitle: 'Next js Project'
+    },
+    {
+      id: '#crud-mern',
+      title: 'Crud MERN',
+      url: 'https://crud-con-react-nodejs-express-y-mongo-177k4ud29-irvinreal.vercel.app',
+      subtitle: 'Full stack application with Mongo DB, Express, React & Node js'
     }
   ]
 };
