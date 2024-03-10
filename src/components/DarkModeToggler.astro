@@ -1,8 +1,8 @@
 <div
-  class='absolute top-5 md:top-4 left-10 md:left-[unset] md:right-12 z-50 darkModeToggler'
+  class='absolute top-3 md:top-4 left-10 md:left-[unset] md:right-12 z-50 darkModeToggler'
 >
   <input type='checkbox' id='check' class='toggle' />
-  <label for='check' class='flex flex-col items-center md:flex-row gap-2 text-xs md:text-sm'> Dark mode</label>
+  <label for='check' class='flex flex-col items-center md:flex-row gap-2 text-xs md:text-sm'> Dark <span class='hidden md:block'>mode</span></label>
 </div>
 
 <style>
@@ -79,7 +79,13 @@
   @media (max-width: 768px) {
     input[type='checkbox'].toggle + label::after {
       top: -2px;
-      left: 14px;
+      left: 0px;
+      height: 14px;
+      width: 14px;
+    }
+
+    input[type='checkbox'].toggle + label::before {
+      height: 10px;
     }
   }
 </style>

@@ -5,6 +5,23 @@ module.exports = {
   theme: {
     extend: {
       keyframes: {
+        // coloring-light-theme:
+        coloring1: {
+          '0%': {
+            background:
+              'linear-gradient(45deg,#525252 0%,#C2C2C2 13%, #969696 33%)',
+            '-webkit-background-clip': 'text',
+            '-webkit-text-fill-color': 'transparent',
+            'background-size': '100%'
+          },
+          '50%, 100%': {
+            background:
+              'linear-gradient(45deg,#525252 0%,#C2C2C2 13%, #969696 33%)',
+            '-webkit-background-clip': 'text',
+            '-webkit-text-fill-color': 'transparent',
+            'background-size': '700%'
+          }
+        },
         coloring: {
           '0%': {
             background:
@@ -73,7 +90,7 @@ module.exports = {
             '-webkit-text-fill-color': 'transparent'
           }
         },
-        // coloringDark: {
+        // coloring-dark-theme: {
         //   '0%': {
         //     background:
         //       '-webkit-linear-gradient(45deg,#969696 35%,#FFFFFF 60%,#A0A0A0 100%)',
@@ -142,16 +159,19 @@ module.exports = {
         //   }
         // },
         coloringDark: {
-          from: {
-            background: 'linear-gradient(45deg,#969696 30%,#FFFFFF 85%)',
+          '0%': {
+            background:
+              'linear-gradient(45deg,#C2C2C2 0%,#5F5F5F 13%, #C2C2C2 33%)',
             '-webkit-background-clip': 'text',
             '-webkit-text-fill-color': 'transparent',
-            opacity: 0
+            'background-size': '100%'
           },
-          to: {
-            background: 'linear-gradient(45deg,#969696 30%,#FFFFFF 85%)',
+          '50%, 100%': {
+            background:
+              'linear-gradient(45deg,#C2C2C2 0%,#5F5F5F 13%, #C2C2C2 33%)',
             '-webkit-background-clip': 'text',
-            '-webkit-text-fill-color': 'transparent'
+            '-webkit-text-fill-color': 'transparent',
+            'background-size': '700%'
           }
         },
         stnApear: {
@@ -191,8 +211,9 @@ module.exports = {
         }
       },
       animation: {
+        coloring1: 'coloring1 1.8s ease-in-out alternate infinite',
         coloring: 'coloring 1.5s ease-in-out alternate infinite',
-        coloringDark: 'coloringDark 1.5s ease-in-out forwards',
+        coloringDark: 'coloringDark 1.8s ease-in-out alternate infinite',
         parpadeando: 'parpadeo',
         desapearLeft: 'desapearLeft .3s ease-in-out forwards',
         apearLeft: 'apearLeft 1s ease-out alternate forwards',
@@ -201,4 +222,4 @@ module.exports = {
     }
   },
   plugins: []
-}
+};
