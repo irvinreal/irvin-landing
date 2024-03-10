@@ -31,6 +31,12 @@ export const PAGES = {
       title: 'Tic tac toe',
       url: 'https://react-tic-tac-toe-dusky.vercel.app/',
       subtitle: 'game'
+    },
+    {
+      id: '#arkanoid',
+      title: 'Arkanoid',
+      url: 'https://arkanoid-game-p5wib5ktm-irvinreals-projects.vercel.app/',
+      subtitle: 'game'
     }
   ],
   react: [
