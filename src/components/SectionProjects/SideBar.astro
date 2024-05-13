@@ -14,7 +14,7 @@ const react = `${path}/react`
 <div id="aside-container" class="relative md:sticky top-0 w-screen md:w-1/4 h-10 md:h-full">
 
   <aside class='md:dark:bg-gray-950/40 py-1 md:pt-0 w-full md:h-full absolute md:z-[900] md:sticky top-0 left-0 right-0 flex'>
-    <ul class='md:mt-32 ms-1 md:mx-6 md:pb-10 text-zinc-600 dark:text-white text-center w-full  flex flex-col gap-3 md:dark:border-l md:dark:border-r border-gray-800'>
+    <ul id="links-list" class='md:mt-32 ms-1 md:mx-6 md:pb-10 text-zinc-600 dark:text-white text-center w-full flex flex-col gap-3 md:dark:border-l md:dark:border-r border-gray-800'>
           <Link
           titleBtn='Landing Pages'
           stnVisible={pathname.includes('/landing-pages')}
@@ -32,7 +32,7 @@ const react = `${path}/react`
           />
     </ul>
     <div class="md:hidden">
-      <button id="aside-btn" class="text-zinc-600 dark:text-white px-2 mx-2 py-1"><IconNav /></button>
+      <button id="aside-btn" class="text-zinc-600 dark:text-white px-2 mx-2 py-1 z-[1000]"><IconNav /></button>
     </div>
   </aside>
 </div>
@@ -41,21 +41,27 @@ const react = `${path}/react`
 <script>
   const asideBtn = document.getElementById('aside-btn')
   const asideContainer = document.getElementById('aside-container')
+  const linksList = document.getElementById('links-list')
 
   const sidebar_link_li = document.getElementsByClassName('sidebar-link-li')
 
   asideBtn.addEventListener('click', () => {
     asideContainer.classList.toggle('h-[10rem]')
+    asideContainer.classList.toggle('z-[999]')
+    linksList.classList.toggle('bg-gray-800')
+    linksList.classList.toggle('pb-2')
+
 
     for (const li of sidebar_link_li) {
 
-      if (!li.classList.contains('block')) {
+      if (!li.classList.contains('block') ) {
+      
         li.classList.toggle('block')
-        li.classList.toggle('hidden')
+        li.classList.toggle('hidden') 
+      } else if (li.classList.contains('block') && !li.classList.contains('1') ) {
+        li.classList.toggle('hidden') 
         
       }
-
-      
     }
 
 
