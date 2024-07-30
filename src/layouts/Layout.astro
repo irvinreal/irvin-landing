@@ -1,5 +1,5 @@
 ---
-import LandingHeader from '../components/LandingHeader.astro';
+import LandingHeaderV2 from '../components/LandingHeaderV2.astro';
 interface Props {
   title: string
 }
@@ -26,8 +26,8 @@ const { title } = Astro.props
     />
     <title>{title}</title>
   </head>
-  <body class='bg-white dark:bg-slate-800 relative h-screen'>
-    <LandingHeader />
+  <body class='bg-white dark:bg-gray-900 relative min-h-screen px-28'>
+    <LandingHeaderV2 />
     <slot />
   </body>
 </html>

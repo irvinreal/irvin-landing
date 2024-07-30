@@ -1,0 +1,13 @@
+---
+const { pathname } = Astro.url
+
+const irvinSVGLogo = '../../public/irvin.svg'
+---
+
+<header class={`bg-gradient-to-b from-white/10 to-gray-900/70  w-full h-16 px-8 py-4 fixed top-0 left-0 right-0`}>
+  <a href="/irvin-landing/" class="flex gap-3 ">
+    <!-- drop-shadow-[0_2px_2px_rgba(255,255,255,0.5)] -->
+    <img src={irvinSVGLogo} class="w-6 invert drop-shadow-[0_2px_1px_rgba(255,255,255,0.2)]" />
+    <h1 class={`text-white drop-shadow-[0_2px_2px_rgba(255,255,255,0.2)] w-fit h-fit text-2xl font-sans font-normal`}>Irvin Real</h1>
+  </a>
+</header>
