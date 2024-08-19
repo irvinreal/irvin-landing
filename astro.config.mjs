@@ -7,5 +7,5 @@ import react from '@astrojs/react'
 export default defineConfig({
   integrations: [react(), tailwind()],
   site: 'https://irvinreal.github.io',
-  base: '/irvin-landing'
+  base: '/irvin-landing',
 })
