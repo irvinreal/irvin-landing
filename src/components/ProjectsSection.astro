@@ -1,0 +1,25 @@
+---
+
+import { PAGES } from '../constants/pages.js';
+import Article from '../layouts/Article.astro';
+import Projects from '../layouts/ProjectsLayout.astro';
+---
+
+<div class="flex flex-col">
+  <Projects>
+    {PAGES.landingPages.map(page => {
+      return (<Article id={page.id} url={page.url} title={page.title} subtitle={page.subtitle} />)
+    })}
+  </Projects>
+  <Projects>
+    {PAGES.react.map(page => {
+      return (<Article id={page.id} url={page.url} title={page.title} subtitle={page.subtitle} />)
+    })}
+  </Projects>
+  <Projects>
+    {PAGES.games.map(page => {
+      return (<Article id={page.id} url={page.url} title={page.title} subtitle={page.subtitle} />)
+    })}
+  </Projects>
+
+</div>

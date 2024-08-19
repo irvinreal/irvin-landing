@@ -2,9 +2,13 @@
 const irvinSVGLogo = './irvin.svg'
 ---
 
+<!-- Efecto con la barra de scroll
+    - Hacer que sólo se muestre el logo ( cuando baje la barra de scroll )
+    - y que aparesca el nombre también ( sólo cuando la barra de scroll se encuentre hasta arriba )
+-->
+
 <header class={`bg-gradient-to-b from-white/10 to-gray-900/70 w-full h-16 px-8 py-4 fixed top-0 left-0 right-0`}>
   <a href="/irvin-landing/" class="inline-flex gap-1 group">
-    <!-- drop-shadow-[0_2px_2px_rgba(255,255,255,0.5)] -->
     <img src={irvinSVGLogo} class="w-[1.2rem] invert drop-shadow-[0_2px_1px_rgba(255,255,255,0.2)] duration-75 ease-out opacity-20 group-hover:opacity-75" alt="Logo Irvin" />
     <h1 class={`text-white drop-shadow-[0_2px_2px_rgba(255,255,255,0.2)] duration-75 ease-out w-fit h-fit text-lg font-sans font-light group-hover:drop-shadow-[0_2px_6px_rgba(255,255,255,0.5)]`}>Irvin Real</h1>
   </a>

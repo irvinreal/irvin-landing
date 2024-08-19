@@ -26,7 +26,7 @@ const { title } = Astro.props
     />
     <title>{title}</title>
   </head>
-  <body class='bg-white dark:bg-gray-900 relative min-h-screen px-28'>
+  <body class='bg-white dark:bg-gray-900 relative min-h-screen px-28 pb-20'>
     <LandingHeaderV2 />
     <slot />
   </body>
@@ -57,7 +57,7 @@ window.localStorage.setItem('theme', theme)
 
 <style>
   body::-webkit-scrollbar {
-    width: 10px;
+    width: 8px;
     background: #212530;
   }
 

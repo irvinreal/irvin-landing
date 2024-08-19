@@ -1,0 +1,44 @@
+---
+import HtmlSkill from '../components/HtmlSkill.astro';
+import { SKILLS } from '../constants/footerSection';
+---
+
+<article>
+  <h3 class='font-light text-teal-950 dark:text-gray-100 inline-block tracking-widest mt-10'>
+    Tecnology Skills
+  </h3>
+  <div class='relative md:px-10 my-5 w-full gap-y-3 flex justify-center items-center flex-wrap py-2'>
+    {
+      SKILLS.map(({ img, alt, imgId = '' }) => (
+        <article class='min-w-fit relative group art-skill-An'>
+          <div class='md:w-fit mx-3 dark:drop-shadow-[0_8px_6px_rgba(0,0,0,0.5)] drop-shadow-[0_4px_3px_rgba(0,0,0,0.4)]'>
+            {<HtmlSkill img={img} alt={alt} imgId={imgId} />}
+          </div>
+        </article>
+      ))
+    }
+  </div>
+  <div>
+    <h3 class='font-light text-teal-950 dark:text-gray-100 inline-block tracking-widest mt-10'>
+      Knowledge
+    </h3>
+    <ul class="[&>li]:dark:text-gray-400 [&>li]:font-thin gap-4">
+      <li>Responsibe design</li>
+      <li>Animaciones CSS</li>
+      <li>Flex</li>
+      <li>Grid</li>
+      <li>Manejo de terminal windows y linux</li>
+      <li>Programación Orientada a Objetos</li>
+      <li>Estructuras de datos</li>
+      <li>MVC</li>
+      <li>Manejo y Desarrollo de Apis Rest</li>
+      <li>Bases de datos Relacionales y No relacionales</li>
+      <li>Git y github</li>
+      <li>Desarrollo mobile con React Native</li>
+      <li>Manejo de estados y hooks con react</li>
+      <li>Redux</li>
+      <li>Context API</li>
+      <li>Componentes funcionales</li>
+    </ul>
+  </div>
+</article>
