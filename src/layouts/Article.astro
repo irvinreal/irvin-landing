@@ -22,9 +22,9 @@ class='rounded-lg md:landing h-full max-h-32 w-60 bg-white landing-1 relative ov
   >
   <span class='text-white/40 dark:text-white/70 text-md md:text-sm font-light tracking-[1px] md:tracking-[3px] drop-shadow-black drop-shadow-md pt-2'
     >{
-      subtitle === 'land' ? 'Landing Page': '' || 
-      subtitle === 'game' ? 'Game' : '' || 
-      subtitle === 'react' ? 'React Project' : '' || 
+      subtitle === 'land' && 'Landing Page' || 
+      subtitle === 'game' && 'Game' || 
+      subtitle === 'react' && 'React Project' || 
       subtitle}</span
   >
 </div>
@@ -37,3 +37,13 @@ class='rounded-lg md:landing h-full max-h-32 w-60 bg-white landing-1 relative ov
   <!-- colocar descripción de las tecnologias y tecnicas usadas y codigo de github -->
   
 </article>
+
+<style>
+  article {
+    opacity: 0;
+
+    animation: reveal linear both;
+    animation-timeline: view();
+    animation-range: entry 15% cover 30%;
+  }
+</style>

@@ -19,7 +19,7 @@ import { SKILLS } from '../constants/footerSection';
     }
   </div>
   <div>
-    <h3 class='font-light text-teal-950 dark:text-gray-100 inline-block tracking-widest mt-10'>
+    <h3 class='font-light text-teal-950 dark:text-gray-100 inline-block tracking-widest mt-10 mb-4'>
       Knowledge
     </h3>
     <ul class="[&>li]:dark:text-gray-400 [&>li]:font-thin gap-4">
@@ -42,3 +42,13 @@ import { SKILLS } from '../constants/footerSection';
     </ul>
   </div>
 </article>
+
+<style>
+  h3, li, .art-skill-An {
+    opacity: 0;
+
+    animation: reveal linear both;
+    animation-timeline: view();
+    animation-range: entry 8% cover 20%;
+  }
+</style>

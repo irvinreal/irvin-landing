@@ -69,4 +69,22 @@ window.localStorage.setItem('theme', theme)
   body::-webkit-scrollbar-thumb:hover {
   background: #949494b0;
   }
+
+  @keyframes reveal {
+    0% {
+      opacity: 0;
+      translate: 0 200px;
+      scale: 0.2;
+    }
+
+    70% {
+      translate: 0 0;
+      scale: 1;
+    }
+
+    100% {
+      opacity: 1;
+      translate: 0 0;
+    }
+  }
 </style>

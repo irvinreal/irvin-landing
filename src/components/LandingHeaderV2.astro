@@ -7,9 +7,51 @@ const irvinSVGLogo = './irvin.svg'
     - y que aparesca el nombre también ( sólo cuando la barra de scroll se encuentre hasta arriba )
 -->
 
-<header class={`bg-gradient-to-b from-gray-700 to-gray-900 md:from-white/10 md:to-gray-900/70 w-full h-16 px-8 py-4 fixed top-0 left-0 right-0 z-[1000]`}>
+<!-- <header class={`bg-gradient-to-b from-gray-700 to-gray-900 md:from-white/10 md:to-gray-900/70 w-full h-16 px-8 py-4 fixed top-0 left-0 right-0 z-[1000]`} > -->
+
+<header class="my-nav">
   <a href="/irvin-landing/" class="inline-flex gap-1 group">
     <img src={irvinSVGLogo} class="w-[1.2rem] invert drop-shadow-[0_2px_1px_rgba(255,255,255,0.2)] duration-75 ease-out opacity-20 md:group-hover:opacity-75" alt="Logo Irvin" />
     <h1 class={`text-white drop-shadow-[0_2px_2px_rgba(255,255,255,0.2)] duration-75 ease-out w-fit h-fit text-lg font-sans font-light group-hover:drop-shadow-[0_2px_6px_rgba(255,255,255,0.5)]`}>Irvin Real</h1>
   </a>
 </header>
+
+<style>
+  .my-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    rigth: 0;
+    width: 100%;
+    /* background: linear-gradient(0deg, rgba(213, 255, 163) 40%,  rgba(0,212,255,1) 100%); */
+    background-color: rgba(160, 160, 160, 0.288);
+    opacity: 0;
+    padding: .4rem 0;
+    padding-left: 2rem;
+    z-index: 1000;
+    visibility: hidden;
+
+    animation: progress-grow auto linear;
+    animation-timeline: scroll(root);
+  }
+
+  @keyframes progress-grow {
+    8% {
+      opacity: 0;
+      visibility: visible;
+    }
+
+
+    15% {
+      opacity: 1;
+      visibility: visible;
+      background-color: rgb(21, 27, 43);
+    }
+
+    100% {
+      visibility: visible;
+      opacity: 1;
+      background-color: rgb(21, 27, 43);
+    }
+  }
+</style>
