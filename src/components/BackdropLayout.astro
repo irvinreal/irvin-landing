@@ -19,7 +19,12 @@
 
   }
 
-  
+  @media (max-width: 600px) {
+
+  .backdrop-layout {
+    background: linear-gradient(0deg, rgb(9, 16, 29) 22%,  rgba(0, 0, 0, 0) 40%);
+  }
+}
 
   @keyframes progress-grow-backdrop {
     0% {
@@ -27,12 +32,8 @@
       opacity: 1;
     }
 
-    10% {
-      /* visibility: hidden; */
+    4% {
       opacity: 0;
-    }
-
-    22% {
       visibility: hidden;
     }
 

@@ -2,7 +2,9 @@
 import Email from '../components/icons/Email.astro';
 import Github from '../components/icons/Github.astro';
 import MainInfo from "./MainInfo.astro";
+import LinkedIn from './icons/LinkedIn.astro';
 
+// importar modulo para cargar cv.pdf
 ---
 
 <section class='landing-section relative min-w-full h-full text-center pt-5 z-[9999]'>
@@ -39,8 +41,31 @@ import MainInfo from "./MainInfo.astro";
         >
         <span><Github /></span>
         </a>
+        <a
+        href='https://www.linkedin.com/in/irvin-osvaldo-gonzalez-real-518719179/'
+        target='_blank'
+        class='w-fit text-zinc-700 dark:text-gray-400  cursor-pointer duration-100 ease-out md:hover:scale-110 md:hover:-translate-y-1 flex items-start'
+        >
+        <span><LinkedIn /></span>
+        </a>
+        <button
+        id="btn-cv"
+        class='w-fit text-zinc-700 dark:text-gray-400  cursor-pointer duration-100 ease-out md:hover:scale-110 md:hover:-translate-y-1 flex items-start'
+        >
+        <span class="leading-[15px] text-[14px] font-semibold">CV</span>
+      </button>
       </div>
     </div>
   </div>
   <MainInfo />
 </section>
+
+<script>
+  const btn = document.getElementById('btn-cv')
+
+  btn.addEventListener('click', function(event) {
+    const pdfUrl = "cv.pdf"
+    window.open(pdfUrl, '_blank')
+
+  })
+</script>
